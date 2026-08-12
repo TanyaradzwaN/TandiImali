@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tandi Mapolisa — Entrepreneur | Philanthropist | Community Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14213D;
+    --ink-soft:#3B4A6B;
+    --gold:#C89B3C;
+    --gold-deep:#A87F28;
+    --forest:#2C6E49;
+    --paper:#FBF9F4;
+    --mist:#EEF1F6;
+    --white:#FFFFFF;
+    --line: rgba(20,33,61,0.12);
+    --shadow: 0 20px 50px -25px rgba(20,33,61,0.35);
+    --radius-xl: 28px;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 8px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter', sans-serif; color:var(--ink); background:var(--paper); line-height:1.6; -webkit-font-smoothing:antialiased;}
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  h1,h2,h3,h4{font-family:'Fraunces', serif; font-weight:600; line-height:1.14; letter-spacing:-0.01em;}
+  .eyebrow{font-family:'Space Grotesk', sans-serif; font-size:12.5px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-deep); display:inline-flex; align-items:center; gap:10px;}
+  .eyebrow::before{content:''; width:26px; height:1.5px; background:var(--gold-deep); display:inline-block;}
+  section{position:relative;}
+  .section-pad{padding:104px 0;}
+  @media(max-width:768px){.section-pad{padding:68px 0;}}
+ 
+  .btn{display:inline-flex; align-items:center; gap:10px; font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:14.5px; letter-spacing:0.02em; padding:15px 28px; border-radius:100px; border:1.5px solid transparent; cursor:pointer; transition:all .25s ease;}
+  .btn-gold{background:var(--gold); color:var(--ink);}
+  .btn-gold:hover{background:var(--gold-deep); transform:translateY(-2px);}
+  .btn-outline{border-color:rgba(255,255,255,0.55); color:var(--white);}
+  .btn-outline:hover{background:rgba(255,255,255,0.12); transform:translateY(-2px);}
+  .btn-ink{border-color:var(--ink); color:var(--ink);}
+  .btn-ink:hover{background:var(--ink); color:var(--white); transform:translateY(-2px);}
+  .btn-forest{background:var(--forest); color:var(--white);}
+  .btn-forest:hover{background:#215838; transform:translateY(-2px);}
+ 
+  header{position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(251,249,244,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0;}
+  .logo{font-family:'Fraunces', serif; font-weight:600; font-size:19px; display:flex; align-items:center; gap:10px;}
+  .logo .mark{width:32px; height:32px; border-radius:var(--radius-sm); background:var(--gold); flex-shrink:0;}
+  .nav-links{display:flex; gap:30px; font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:500;}
+  .nav-links a{position:relative; padding:4px 0;}
+  .nav-links a::after{content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--gold-deep); transition:width .25s;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex; align-items:center; gap:18px;}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none;}
+  .burger span{width:24px; height:2px; background:var(--ink);}
+  .mobile-menu{display:none; flex-direction:column; gap:16px; padding:18px 28px 26px; font-family:'Space Grotesk',sans-serif; font-weight:500; border-top:1px solid var(--line);}
+  .mobile-menu.open{display:flex;}
+  @media(max-width:900px){.nav-links{display:none;} .nav-cta .btn{display:none;} .burger{display:flex;}}
+ 
+  /* HERO */
+  .hero{padding:160px 0 100px; background:radial-gradient(circle at 85% 12%, rgba(200,155,60,0.18), transparent 45%), var(--ink); color:var(--white); overflow:hidden;}
+  .hero .wrap{display:grid; grid-template-columns:1fr 0.85fr; gap:60px; align-items:center;}
+  .hero h1{font-size:clamp(36px,5vw,60px); color:var(--white); margin:16px 0 10px;}
+  .hero .role{font-family:'Space Grotesk',sans-serif; font-size:15px; letter-spacing:0.05em; color:var(--gold); margin-bottom:22px;}
+  .hero p{color:rgba(255,255,255,0.78); font-size:17px; max-width:480px; margin-bottom:32px;}
+  .hero .eyebrow{color:var(--gold);}
+  .hero .eyebrow::before{background:var(--gold);}
+  .hero-btns{display:flex; gap:16px; flex-wrap:wrap;}
+  .hero-art{position:relative; height:520px;}
+  .hero-art img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:var(--radius-xl); box-shadow:var(--shadow); border:6px solid var(--white); outline:1px solid var(--line);}
+  .hero-art .chip{position:absolute; bottom:-18px; left:-18px; background:var(--white); color:var(--ink); padding:16px 20px; border-radius:16px; box-shadow:var(--shadow); font-family:'Space Grotesk',sans-serif; max-width:210px;}
+  .hero-art .chip strong{display:block; font-family:'Fraunces',serif; font-size:22px; color:var(--forest);}
+  .hero-art .chip span{font-size:11.5px; color:var(--ink-soft);}
+  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;} .hero-art{height:380px; margin-top:10px; max-width:340px; margin-left:auto; margin-right:auto;}}
+ 
+  /* ABOUT */
+  .about .wrap{display:grid; grid-template-columns:0.8fr 1.2fr; gap:70px; align-items:center;}
+  .about-img{position:relative;}
+  .about-img img{border-radius:var(--radius-xl); box-shadow:var(--shadow); width:100%; height:460px; object-fit:cover; object-position:top center; border:6px solid var(--white); outline:1px solid var(--line);}
+  .about-copy h2{font-size:clamp(28px,3.4vw,40px); margin:16px 0 18px;}
+  .about-copy p{color:var(--ink-soft); margin-bottom:16px; max-width:560px;}
+  .stat-chips{display:flex; gap:14px; flex-wrap:wrap; margin:26px 0 30px;}
+  .stat-chip{background:var(--mist); border:1px solid var(--line); border-radius:16px; padding:14px 20px; min-width:120px;}
+  .stat-chip strong{display:block; font-family:'Fraunces',serif; font-size:24px; color:var(--ink);}
+  .stat-chip span{font-family:'Space Grotesk',sans-serif; font-size:11.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em;}
+  @media(max-width:900px){.about .wrap{grid-template-columns:1fr;} .about-img img{height:340px;}}
+ 
+  /* AWARDS */
+  .awards{background:var(--mist);}
+  .awards-banner{position:relative; border-radius:var(--radius-xl); overflow:hidden; height:260px; margin-top:40px; margin-bottom:8px;}
+  .awards-banner img{width:100%; height:100%; object-fit:cover;}
+  .awards-banner .overlay{position:absolute; inset:0; background:linear-gradient(90deg, rgba(20,33,61,0.88) 10%, rgba(20,33,61,0.15) 80%); display:flex; align-items:center; padding:0 48px;}
+  .awards-banner .overlay-text{max-width:420px; color:var(--white);}
+  .awards-banner .overlay-text h3{color:var(--white); font-size:clamp(22px,2.6vw,30px); margin-bottom:8px;}
+  .awards-banner .overlay-text p{color:rgba(255,255,255,0.8); font-size:14.5px;}
+  .awards-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:36px;}
+  .award-card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md); padding:26px 24px; display:flex; gap:16px; align-items:flex-start;}
+  .award-badge{width:46px; height:46px; border-radius:var(--radius-sm); background:var(--ink); color:var(--gold); display:flex; align-items:center; justify-content:center; font-size:19px; flex-shrink:0;}
+  .award-card h4{font-size:16.5px; margin-bottom:4px;}
+  .award-card p{font-size:13px; color:var(--ink-soft); font-family:'Space Grotesk',sans-serif;}
+  .award-note{margin-top:30px; font-size:13.5px; color:var(--ink-soft); font-style:italic;}
+  @media(max-width:900px){.awards-grid{grid-template-columns:1fr 1fr;} .awards-banner{height:200px;}}
+  @media(max-width:600px){.awards-grid{grid-template-columns:1fr;}}
+ 
+  /* BOOK */
+  .book-section .wrap{display:grid; grid-template-columns:0.75fr 1.25fr; gap:70px; align-items:center;}
+  .book-mockup{perspective:1200px; display:flex; justify-content:center;}
+  .book{width:230px; height:330px; position:relative; transform-style:preserve-3d; transform:rotateY(-22deg) rotateX(1deg); transition:transform .5s ease;}
+  .book-mockup:hover .book{transform:rotateY(-10deg) rotateX(1deg);}
+  .book-face{position:absolute; inset:0; border-radius:5px 12px 12px 5px; background:linear-gradient(155deg, var(--ink) 0%, #1c2f57 55%, var(--forest) 150%); box-shadow:-26px 26px 55px -22px rgba(20,33,61,.6); padding:32px 26px; display:flex; flex-direction:column; justify-content:space-between; color:var(--white);}
+  .book-face .tag{font-family:'Space Grotesk',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold);}
+  .book-face h3{font-family:'Fraunces',serif; font-size:25px; color:var(--white); line-height:1.2;}
+  .book-face .author{font-family:'Space Grotesk',sans-serif; font-size:12px; color:rgba(255,255,255,0.75);}
+  .book-spine{position:absolute; left:-16px; top:0; bottom:0; width:16px; background:var(--gold-deep); transform:rotateY(90deg); transform-origin:right center; border-radius:5px 0 0 5px;}
+  .book-pages{position:absolute; right:-8px; top:8px; bottom:8px; width:8px; background:repeating-linear-gradient(180deg, #fff 0px, #fff 2px, #e8e4da 2px, #e8e4da 4px); transform:rotateY(-90deg); transform-origin:left center; border-radius:0 3px 3px 0;}
+  .book-copy .eyebrow{margin-bottom:10px;}
+  .book-copy h2{font-size:clamp(26px,3.2vw,38px); margin-bottom:16px;}
+  .book-copy p{color:var(--ink-soft); margin-bottom:16px; max-width:520px;}
+  .book-highlights{display:flex; flex-direction:column; gap:10px; margin:20px 0 28px;}
+  .book-highlights li{display:flex; gap:10px; align-items:flex-start; font-size:14.5px; color:var(--ink-soft);}
+  .book-highlights li::before{content:'—'; color:var(--gold-deep); font-weight:700; flex-shrink:0;}
+  @media(max-width:900px){.book-section .wrap{grid-template-columns:1fr;} .book-mockup{margin-bottom:10px;}}
+ 
+  /* FOUNDATION SPOTLIGHT */
+  .foundation{background:var(--ink); color:var(--white);}
+  .foundation .wrap{display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;}
+  .foundation .eyebrow{color:var(--gold);}
+  .foundation .eyebrow::before{background:var(--gold);}
+  .foundation h2{font-size:clamp(26px,3.2vw,38px); color:var(--white); margin:16px 0 18px;}
+  .foundation p{color:rgba(255,255,255,0.78); margin-bottom:22px; max-width:480px;}
+  .foundation-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .f-stat{background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:16px; padding:18px 16px; text-align:center;}
+  .f-stat strong{display:block; font-family:'Fraunces',serif; font-size:26px; color:var(--gold);}
+  .f-stat span{font-family:'Space Grotesk',sans-serif; font-size:10.5px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.04em;}
+  .foundation-art{position:relative; height:340px; border-radius:var(--radius-lg); background:linear-gradient(150deg, var(--forest), var(--gold-deep)); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.18);}
+  @media(max-width:900px){.foundation .wrap{grid-template-columns:1fr;} .foundation-art{height:220px;}}
+ 
+  /* ENGAGE */
+  .engage{text-align:center;}
+  .engage .wrap{max-width:680px;}
+  .engage h2{font-size:clamp(26px,3.2vw,38px); margin:16px 0 16px;}
+  .engage p{color:var(--ink-soft); margin-bottom:30px;}
+  .engage-btns{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+ 
+  /* FOOTER */
+  footer{background:var(--ink); color:rgba(255,255,255,0.75); padding-top:70px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding-bottom:50px; border-bottom:1px solid rgba(255,255,255,0.12);}
+  .footer-logo{display:flex; align-items:center; gap:10px; color:var(--white); font-family:'Fraunces',serif; font-size:19px; font-weight:600; margin-bottom:14px;}
+  .footer-logo .mark{width:26px; height:26px; border-radius:var(--radius-sm); background:var(--gold);}
+  .footer-col h5{font-family:'Space Grotesk',sans-serif; color:var(--white); font-size:13px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;}
+  .footer-col li{margin-bottom:10px; font-size:14px;}
+  .footer-col li a:hover{color:var(--gold);}
+  .socials{display:flex; gap:12px; margin-top:18px;}
+  .socials a{width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600; transition:all .25s;}
+  .socials a:hover{background:var(--gold); color:var(--ink); border-color:var(--gold);}
+  .footer-bottom{display:flex; justify-content:space-between; padding:24px 0; font-size:13px; flex-wrap:wrap; gap:10px;}
+  @media(max-width:700px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+ 
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+ 
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#home" class="logo"><span class="mark"></span> Tandi Mapolisa</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#book">My Book</a></li>
+        <li><a href="#foundation">Foundation</a></li>
+        <li><a href="#engage">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#book" class="btn btn-gold">Get My Book</a>
+        <button class="burger" id="burgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">About</a>
+      <a href="#awards">Awards</a>
+      <a href="#book">My Book</a>
+      <a href="#foundation">Foundation</a>
+      <a href="#engage">Contact</a>
+      <a href="#book" class="btn btn-gold" style="text-align:center;">Get My Book</a>
+    </div>
+  </div>
+</header>
+ 
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Welcome</span>
+      <h1>Tandi Mapolisa</h1>
+      <div class="role">Entrepreneur &nbsp;|&nbsp; Philanthropist &nbsp;|&nbsp; Community Builder &nbsp;|&nbsp; Author</div>
+      <p>Founder of the Tandi Mapolisa Foundation. I believe lasting change begins when people are empowered with knowledge, opportunity, and support — and I've spent my career building platforms that make that possible.</p>
+      <div class="hero-btns">
+        <a href="#about" class="btn btn-gold">About Me</a>
+        <a href="#book" class="btn btn-outline">Get My Book</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="tandi-portrait.jpg" alt="Tandi Mapolisa portrait">
+      <div class="chip"><strong>1,000+</strong><span>Lives touched through community programmes</span></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ABOUT -->
+<section class="about section-pad" id="about">
+  <div class="wrap">
+    <div class="about-img">
+      <img src="tandi-portrait.jpg" alt="Tandi Mapolisa">
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow">About Me</span>
+      <h2>Leadership measured by lives transformed.</h2>
+      <p>My name is Tandi Mapolisa and I am an Entrepreneur, Community Leader, Philanthropist, and Author. I am the Founder of the Tandi Mapolisa Foundation, an organisation dedicated to bridging gaps in education, economic empowerment, health awareness, and community development across Zimbabwe.</p>
+      <p>Driven by compassion and a desire to create sustainable impact, I work to empower individuals to become self-reliant, confident, and capable of building better futures for themselves and their communities.</p>
+      <div class="stat-chips">
+        <div class="stat-chip"><strong>1,000+</strong><span>Lives Impacted</span></div>
+        <div class="stat-chip"><strong>300+</strong><span>Students Supported</span></div>
+        <div class="stat-chip"><strong>120+</strong><span>Volunteers</span></div>
+        <div class="stat-chip"><strong>25+</strong><span>Partners</span></div>
+      </div>
+      <a href="#foundation" class="btn btn-ink">Learn More</a>
+    </div>
+  </div>
+</section>
+ 
+<!-- AWARDS -->
+<section class="awards section-pad" id="awards">
+  <div class="wrap">
+    <span class="eyebrow">Recognition</span>
+    <h2 style="margin-top:16px; font-size:clamp(26px,3.2vw,38px); max-width:600px;">Awards &amp; Honours</h2>
+    <div class="awards-banner reveal">
+      <img src="tandi-awards.jpg" alt="A selection of Tandi Mapolisa's awards and honours">
+      <div class="overlay">
+        <div class="overlay-text">
+          <h3>A career recognised</h3>
+          <p>Over the years, my work in community development and entrepreneurship has been honoured by a number of institutions and organisations.</p>
+        </div>
+      </div>
+    </div>
+    <div class="awards-grid">
+      <div class="award-card"><div class="award-badge">🏆</div><div><h4>[Award Name]</h4><p>[Issuing Body] · [Year]</p></div></div>
+      <div class="award-card"><div class="award-badge">🏅</div><div><h4>[Award Name]</h4><p>[Issuing Body] · [Year]</p></div></div>
+      <div class="award-card"><div class="award-badge">🎖️</div><div><h4>[Award Name]</h4><p>[Issuing Body] · [Year]</p></div></div>
+      <div class="award-card"><div class="award-badge">⭐</div><div><h4>[Award Name]</h4><p>[Issuing Body] · [Year]</p></div></div>
+      <div class="award-card"><div class="award-badge">🏆</div><div><h4>[Award Name]</h4><p>[Issuing Body] · [Year]</p></div></div>
+      <div class="award-card"><div class="award-badge">🏅</div><div><h4>[Award Name]</h4><p>[Issuing Body] · [Year]</p></div></div>
+    </div>
+    <p class="award-note">* Placeholder award details above — send me the actual award names, issuing bodies, and years and I'll drop them straight in.</p>
+  </div>
+</section>
+ 
+<!-- BOOK -->
+<section class="book-section section-pad" id="book">
+  <div class="wrap">
+    <div class="book-mockup">
+      <div class="book">
+        <div class="book-spine"></div>
+        <div class="book-pages"></div>
+        <div class="book-face">
+          <span class="tag">Author</span>
+          <h3>Full<br>Circle</h3>
+          <span class="author">Tandi Mapolisa</span>
+        </div>
+      </div>
+    </div>
+    <div class="book-copy">
+      <span class="eyebrow">My Book</span>
+      <h2>Full Circle</h2>
+      <p>Share the story behind your journey — from building your foundation to leading community change. This section is set up and ready; send me the title, cover concept, and blurb and I'll drop them straight in.</p>
+      <ul class="book-highlights">
+        <li>Lessons on leadership and community building</li>
+        <li>Behind-the-scenes of founding the Foundation</li>
+        <li>Practical guidance for aspiring changemakers</li>
+      </ul>
+      <div class="hero-btns">
+        <a href="#" class="btn btn-forest">Buy My Book</a>
+        <a href="#" class="btn btn-ink">Read an Excerpt</a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOUNDATION SPOTLIGHT -->
+<section class="foundation section-pad" id="foundation">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">DSN&nbsp;— Community Work</span>
+      <h2>The Tandi Mapolisa Foundation</h2>
+      <p>Through education, youth empowerment, women's development, health initiatives, financial literacy, and community outreach, the Foundation is building a future where every individual has the chance to reach their full potential.</p>
+      <div class="foundation-stats">
+        <div class="f-stat"><strong>50+</strong><span>Projects</span></div>
+        <div class="f-stat"><strong>6</strong><span>Impact Areas</span></div>
+        <div class="f-stat"><strong>1,000+</strong><span>Lives Reached</span></div>
+      </div>
+      <div style="margin-top:26px;">
+        <a href="#" class="btn btn-gold">Visit the Foundation</a>
+      </div>
+    </div>
+    <div class="foundation-art"></div>
+  </div>
+</section>
+ 
+<!-- ENGAGE -->
+<section class="engage section-pad" id="engage">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center;">Engage Me</span>
+    <h2>Invite me to speak at your next event</h2>
+    <p>I don't charge a fee for speaking engagements, but I do ask that you consider donating to the Tandi Mapolisa Foundation in lieu of a fee.</p>
+    <div class="engage-btns">
+      <a href="mailto:hello@tandimapolisa.co.zw" class="btn btn-gold">Request an Engagement</a>
+      <a href="#foundation" class="btn btn-ink">Support the Foundation</a>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><span class="mark"></span> Tandi Mapolisa</div>
+        <p style="max-width:280px; font-size:14px;">Entrepreneur, Philanthropist, Community Builder and Author — founder of the Tandi Mapolisa Foundation.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook">Fb</a>
+          <a href="#" aria-label="Twitter">X</a>
+          <a href="#" aria-label="Instagram">Ig</a>
+          <a href="#" aria-label="YouTube">Yt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#awards">Awards &amp; Honours</a></li>
+          <li><a href="#book">My Book</a></li>
+          <li><a href="#foundation">Foundation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Get In Touch</h5>
+        <ul>
+          <li>hello@tandimapolisa.co.zw</li>
+          <li>+263 00 000 0000</li>
+          <li>Harare, Zimbabwe</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tandi Mapolisa. All rights reserved.</span>
+      <span>Built with purpose.</span>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+  const burger = document.getElementById('burgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+ 
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+  }, { threshold: 0.2 });
+  revealEls.forEach(el => revealObserver.observe(el));
+</script>
+ 
+</body>
+</html>
