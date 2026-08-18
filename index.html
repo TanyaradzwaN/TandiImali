@@ -1,5 +1,4 @@
-
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -28,6 +27,7 @@
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{font-family:'Inter', sans-serif; color:var(--ink); background:var(--paper); line-height:1.6; -webkit-font-smoothing:antialiased;}
+  body.modal-lock{overflow:hidden;}
   img{max-width:100%; display:block;}
   a{color:inherit; text-decoration:none;}
   ul{list-style:none;}
@@ -39,7 +39,7 @@
   .section-pad{padding:104px 0;}
   @media(max-width:768px){.section-pad{padding:68px 0;}}
  
-  .btn{display:inline-flex; align-items:center; gap:10px; font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:14.5px; letter-spacing:0.02em; padding:15px 28px; border-radius:100px; border:1.5px solid transparent; cursor:pointer; transition:all .25s ease;}
+  .btn{display:inline-flex; align-items:center; gap:10px; font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:14.5px; letter-spacing:0.02em; padding:15px 28px; border-radius:100px; border:1.5px solid transparent; cursor:pointer; transition:all .25s ease; background:none;}
   .btn-gold{background:var(--gold); color:var(--ink);}
   .btn-gold:hover{background:var(--gold-deep); transform:translateY(-2px);}
   .btn-outline{border-color:rgba(255,255,255,0.55); color:var(--white);}
@@ -50,10 +50,10 @@
   .btn-forest:hover{background:#215838; transform:translateY(-2px);}
  
   header{position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(251,249,244,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
-  nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0;}
-  .logo{font-family:'Fraunces', serif; font-weight:600; font-size:19px; display:flex; align-items:center; gap:10px;}
-  .logo .mark{width:32px; height:32px; border-radius:var(--radius-sm); background:var(--gold); flex-shrink:0;}
-  .nav-links{display:flex; gap:30px; font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:500;}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0;}
+  .logo{display:flex; align-items:center; gap:10px;}
+  .logo img{height:46px; width:auto;}
+  .nav-links{display:flex; gap:24px; font-family:'Space Grotesk',sans-serif; font-size:13.5px; font-weight:500;}
   .nav-links a{position:relative; padding:4px 0;}
   .nav-links a::after{content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--gold-deep); transition:width .25s;}
   .nav-links a:hover::after{width:100%;}
@@ -62,10 +62,10 @@
   .burger span{width:24px; height:2px; background:var(--ink);}
   .mobile-menu{display:none; flex-direction:column; gap:16px; padding:18px 28px 26px; font-family:'Space Grotesk',sans-serif; font-weight:500; border-top:1px solid var(--line);}
   .mobile-menu.open{display:flex;}
-  @media(max-width:900px){.nav-links{display:none;} .nav-cta .btn{display:none;} .burger{display:flex;}}
+  @media(max-width:980px){.nav-links{display:none;} .nav-cta .btn{display:none;} .burger{display:flex;}}
  
   /* HERO */
-  .hero{padding:160px 0 100px; background:radial-gradient(circle at 85% 12%, rgba(200,155,60,0.18), transparent 45%), var(--ink); color:var(--white); overflow:hidden;}
+  .hero{padding:150px 0 100px; background:radial-gradient(circle at 85% 12%, rgba(200,155,60,0.18), transparent 45%), var(--ink); color:var(--white); overflow:hidden;}
   .hero .wrap{display:grid; grid-template-columns:1fr 0.85fr; gap:60px; align-items:center;}
   .hero h1{font-size:clamp(36px,5vw,60px); color:var(--white); margin:16px 0 10px;}
   .hero .role{font-family:'Space Grotesk',sans-serif; font-size:15px; letter-spacing:0.05em; color:var(--gold); margin-bottom:22px;}
@@ -114,10 +114,10 @@
   .book-mockup{perspective:1200px; display:flex; justify-content:center;}
   .book{width:230px; height:330px; position:relative; transform-style:preserve-3d; transform:rotateY(-22deg) rotateX(1deg); transition:transform .5s ease;}
   .book-mockup:hover .book{transform:rotateY(-10deg) rotateX(1deg);}
-  .book-face{position:absolute; inset:0; border-radius:5px 12px 12px 5px; background:linear-gradient(155deg, var(--ink) 0%, #1c2f57 55%, var(--forest) 150%); box-shadow:-26px 26px 55px -22px rgba(20,33,61,.6); padding:2px 8px; display:flex; flex-direction:column; justify-content:space-between; color:var(--white);}
+  .book-face{position:absolute; inset:0; border-radius:5px 12px 12px 5px; background:linear-gradient(155deg, var(--ink) 0%, #1c2f57 55%, var(--forest) 150%); box-shadow:-26px 26px 55px -22px rgba(20,33,61,.6); padding:2px 8px; display:flex; flex-direction:column; justify-content:space-between; color:var(--white); overflow:hidden;}
   .book-face .tag{font-family:'Space Grotesk',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold);}
   .book-face h3{font-family:'Fraunces',serif; font-size:25px; color:var(--white); line-height:1.2;}
-  .book-face img{border-radius:6px}
+  .book-face img{width:100%; height:100%; object-fit:cover; border-radius:6px;}
   .book-face .author{font-family:'Space Grotesk',sans-serif; font-size:12px; color:rgba(255,255,255,0.75);}
   .book-spine{position:absolute; left:-16px; top:0; bottom:0; width:16px; background:var(--gold-deep); transform:rotateY(90deg); transform-origin:right center; border-radius:5px 0 0 5px;}
   .book-pages{position:absolute; right:-8px; top:8px; bottom:8px; width:8px; background:repeating-linear-gradient(180deg, #fff 0px, #fff 2px, #e8e4da 2px, #e8e4da 4px); transform:rotateY(-90deg); transform-origin:left center; border-radius:0 3px 3px 0;}
@@ -128,6 +128,28 @@
   .book-highlights li{display:flex; gap:10px; align-items:flex-start; font-size:14.5px; color:var(--ink-soft);}
   .book-highlights li::before{content:'—'; color:var(--gold-deep); font-weight:700; flex-shrink:0;}
   @media(max-width:900px){.book-section .wrap{grid-template-columns:1fr;} .book-mockup{margin-bottom:10px;}}
+ 
+  /* STORIES */
+  .stories{background:var(--mist);}
+  .stories-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:44px;}
+  .story-card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden; cursor:pointer; transition:transform .25s ease, box-shadow .25s ease; display:flex; flex-direction:column;}
+  .story-card:hover{transform:translateY(-6px); box-shadow:var(--shadow);}
+  .story-card img{width:100%; height:190px; object-fit:cover;}
+  .story-body{padding:24px 22px 26px; display:flex; flex-direction:column; gap:10px; flex-grow:1;}
+  .story-body .eyebrow{font-size:11px;}
+  .story-body h4{font-size:18px; line-height:1.3;}
+  .story-body p{font-size:14px; color:var(--ink-soft); flex-grow:1;}
+  .story-read{font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:600; color:var(--gold-deep); display:inline-flex; align-items:center; gap:6px; margin-top:4px;}
+  @media(max-width:900px){.stories-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.stories-grid{grid-template-columns:1fr;}}
+ 
+  /* GALLERY */
+  .gallery-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:44px;}
+  .gallery-item{position:relative; border-radius:var(--radius-lg); overflow:hidden; height:220px;}
+  .gallery-item img{width:100%; height:100%; object-fit:cover; transition:transform .4s;}
+  .gallery-item:hover img{transform:scale(1.06);}
+  .gallery-cap{position:absolute; left:0; right:0; bottom:0; background:linear-gradient(0deg, rgba(20,33,61,0.85), transparent); color:var(--white); padding:14px 16px; font-family:'Space Grotesk',sans-serif; font-size:12.5px; font-weight:600;}
+  @media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
  
   /* FOUNDATION SPOTLIGHT */
   .foundation{background:var(--ink); color:var(--white);}
@@ -141,6 +163,7 @@
   .f-stat strong{display:block; font-family:'Fraunces',serif; font-size:26px; color:var(--gold);}
   .f-stat span{font-family:'Space Grotesk',sans-serif; font-size:10.5px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.04em;}
   .foundation-art{position:relative; height:340px; border-radius:var(--radius-lg); background:linear-gradient(150deg, var(--forest), var(--gold-deep)); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.18);}
+  .foundation-btns{display:flex; gap:14px; margin-top:26px; flex-wrap:wrap;}
   @media(max-width:900px){.foundation .wrap{grid-template-columns:1fr;} .foundation-art{height:220px;}}
  
   /* ENGAGE */
@@ -153,8 +176,8 @@
   /* FOOTER */
   footer{background:var(--ink); color:rgba(255,255,255,0.75); padding-top:70px;}
   .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding-bottom:50px; border-bottom:1px solid rgba(255,255,255,0.12);}
-  .footer-logo{display:flex; align-items:center; gap:10px; color:var(--white); font-family:'Fraunces',serif; font-size:19px; font-weight:600; margin-bottom:14px;}
-  .footer-logo .mark{width:26px; height:26px; border-radius:var(--radius-sm); background:var(--gold);}
+  .footer-logo{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .footer-logo img{height:52px; width:auto; filter:brightness(0) invert(1);}
   .footer-col h5{font-family:'Space Grotesk',sans-serif; color:var(--white); font-size:13px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;}
   .footer-col li{margin-bottom:10px; font-size:14px;}
   .footer-col li a:hover{color:var(--gold);}
@@ -167,6 +190,38 @@
  
   .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
   .reveal.visible{opacity:1; transform:translateY(0);}
+ 
+  /* FORM ELEMENTS (shared by modals) */
+  label{font-family:'Space Grotesk',sans-serif; font-size:12.5px; font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-bottom:7px;}
+  .field{margin-bottom:18px;}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  input, textarea, select{width:100%; border:1px solid var(--line); background:var(--white); border-radius:14px; padding:14px 16px; font-family:'Inter',sans-serif; font-size:14.5px; color:var(--ink);}
+  input:focus, textarea:focus, select:focus{outline:2px solid var(--gold); outline-offset:1px;}
+  textarea{resize:vertical; min-height:100px;}
+  select{appearance:none; background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%233B4A6B'%3E%3Cpath d='M5.5 7.5l4.5 4.5 4.5-4.5' stroke='%233B4A6B' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:38px;}
+  @media(max-width:560px){.field-row{grid-template-columns:1fr;}}
+ 
+  /* MODALS */
+  .modal-overlay{position:fixed; inset:0; background:rgba(20,33,61,0.55); backdrop-filter:blur(4px); display:none; align-items:center; justify-content:center; z-index:1000; padding:20px;}
+  .modal-overlay.open{display:flex;}
+  .modal-box{background:var(--white); border-radius:var(--radius-lg); max-width:600px; width:100%; max-height:88vh; overflow-y:auto; padding:44px; position:relative; box-shadow:var(--shadow);}
+  .modal-box.modal-wide{max-width:760px;}
+  .modal-close{position:absolute; top:18px; right:18px; width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:var(--white); cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center; color:var(--ink-soft); transition:all .2s;}
+  .modal-close:hover{background:var(--ink); color:var(--white); border-color:var(--ink);}
+  .modal-eyebrow{margin-bottom:12px;}
+  .modal-box h2{font-size:clamp(22px,3vw,30px); margin-bottom:6px;}
+  .modal-meta{font-family:'Space Grotesk',sans-serif; font-size:12.5px; color:var(--ink-soft); margin-bottom:22px;}
+  .modal-box img.modal-banner{width:100%; height:260px; object-fit:cover; border-radius:var(--radius-md); margin-bottom:24px;}
+  .modal-body p{color:var(--ink-soft); margin-bottom:14px; font-size:15px;}
+  .modal-submit{margin-top:6px;}
+  .amount-chips{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;}
+  .amount-chip{border:1px solid var(--line); border-radius:100px; padding:11px 20px; cursor:pointer; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14px; background:var(--white); transition:all .2s; color:var(--ink);}
+  .amount-chip:hover{border-color:var(--gold);}
+  .amount-chip.selected{background:var(--gold); border-color:var(--gold); color:var(--ink);}
+  .success-state{text-align:center; padding:20px 0;}
+  .success-state .icon{width:64px; height:64px; border-radius:50%; background:var(--forest); color:var(--white); font-size:28px; display:flex; align-items:center; justify-content:center; margin:0 auto 20px;}
+  .success-state h3{font-size:22px; margin-bottom:10px;}
+  .success-state p{color:var(--ink-soft); font-size:14.5px;}
 </style>
 </head>
 <body>
@@ -174,11 +229,13 @@
 <header>
   <div class="wrap">
     <nav>
-      <a href="#home" class="logo"><span class="mark"></span> Tandi Mapolisa</a>
+      <a href="#home" class="logo"><img src="logo.png" alt="Tandi Mapolisa Foundation logo"></a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#awards">Awards</a></li>
         <li><a href="#book">My Book</a></li>
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#foundation">Foundation</a></li>
         <li><a href="#engage">Contact</a></li>
       </ul>
@@ -191,6 +248,8 @@
       <a href="#about">About</a>
       <a href="#awards">Awards</a>
       <a href="#book">My Book</a>
+      <a href="#stories">Stories</a>
+      <a href="#gallery">Gallery</a>
       <a href="#foundation">Foundation</a>
       <a href="#engage">Contact</a>
       <a href="#book" class="btn btn-gold" style="text-align:center;">Get My Book</a>
@@ -274,14 +333,14 @@
         <div class="book-spine"></div>
         <div class="book-pages"></div>
         <div class="book-face">
-          <img src="book.jpeg" alt="book cover">
+          <img src="book.jpeg" alt="Full Circle book cover">
         </div>
       </div>
     </div>
     <div class="book-copy">
       <span class="eyebrow">My Book</span>
       <h2>Full Circle</h2>
-      <p>Share the story behind your journey — from building your foundation to leading community change. This section is set up and ready; send me the title, cover concept, and blurb and I'll drop them straight in.</p>
+      <p>Share the story behind your journey — from building your foundation to leading community change. This section is set up and ready; send me the cover concept and blurb and I'll drop them straight in.</p>
       <ul class="book-highlights">
         <li>Lessons on leadership and community building</li>
         <li>Behind-the-scenes of founding the Foundation</li>
@@ -295,11 +354,38 @@
   </div>
 </section>
  
+<!-- STORIES -->
+<section class="stories section-pad" id="stories">
+  <div class="wrap">
+    <span class="eyebrow">Stories &amp; Insights</span>
+    <h2 style="margin-top:16px; font-size:clamp(26px,3.2vw,38px); max-width:600px;">Latest stories</h2>
+    <div class="stories-grid" id="storiesGrid"></div>
+  </div>
+</section>
+ 
+<!-- GALLERY -->
+<section class="section-pad" id="gallery">
+  <div class="wrap">
+    <span class="eyebrow">Gallery</span>
+    <h2 style="margin-top:16px; font-size:clamp(26px,3.2vw,38px);">Moments from the field</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://placehold.co/500x500/1E4FA3/FBF9F4?text=Community+Outreach" alt="Community outreach"><div class="gallery-cap">Community Outreach</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/2C6E49/FBF9F4?text=Youth+Programmes" alt="Youth programmes"><div class="gallery-cap">Youth Programmes</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/C89B3C/14213D?text=Educational+Support" alt="Educational support"><div class="gallery-cap">Educational Support</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/14213D/C89B3C?text=Volunteer+Activities" alt="Volunteer activities"><div class="gallery-cap">Volunteer Activities</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/2C6E49/FBF9F4?text=Health+Campaigns" alt="Health campaigns"><div class="gallery-cap">Health Campaigns</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/1E4FA3/FBF9F4?text=Leadership+Workshops" alt="Leadership workshops"><div class="gallery-cap">Leadership Workshops</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/C89B3C/14213D?text=Women%27s+Empowerment" alt="Women's empowerment"><div class="gallery-cap">Women's Empowerment</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/14213D/FBF9F4?text=More+Stories" alt="More stories"><div class="gallery-cap">More Stories</div></div>
+    </div>
+  </div>
+</section>
+ 
 <!-- FOUNDATION SPOTLIGHT -->
 <section class="foundation section-pad" id="foundation">
   <div class="wrap">
     <div>
-      <span class="eyebrow">DSN&nbsp;— Community Work</span>
+      <span class="eyebrow">Community Work</span>
       <h2>The Tandi Mapolisa Foundation</h2>
       <p>Through education, youth empowerment, women's development, health initiatives, financial literacy, and community outreach, the Foundation is building a future where every individual has the chance to reach their full potential.</p>
       <div class="foundation-stats">
@@ -307,8 +393,9 @@
         <div class="f-stat"><strong>6</strong><span>Impact Areas</span></div>
         <div class="f-stat"><strong>1,000+</strong><span>Lives Reached</span></div>
       </div>
-      <div style="margin-top:26px;">
+      <div class="foundation-btns">
         <a href="#" class="btn btn-gold">Visit the Foundation</a>
+        <button class="btn btn-outline" onclick="openModal('donateModal')">Donate Now</button>
       </div>
     </div>
     <div class="foundation-art"></div>
@@ -322,8 +409,8 @@
     <h2>Invite me to speak at your next event</h2>
     <p>I don't charge a fee for speaking engagements, but I do ask that you consider donating to the Tandi Mapolisa Foundation in lieu of a fee.</p>
     <div class="engage-btns">
-      <a href="mailto:hello@tandimapolisa.co.zw" class="btn btn-gold">Request an Engagement</a>
-      <a href="#foundation" class="btn btn-ink">Support the Foundation</a>
+      <button class="btn btn-gold" onclick="openModal('engagementModal')">Request an Engagement</button>
+      <button class="btn btn-ink" onclick="openModal('donateModal')">Donate Now</button>
     </div>
   </div>
 </section>
@@ -333,7 +420,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo"><span class="mark"></span> Tandi Mapolisa</div>
+        <div class="footer-logo"><img src="logo.png" alt="Tandi Mapolisa Foundation logo"></div>
         <p style="max-width:280px; font-size:14px;">Entrepreneur, Philanthropist, Community Builder and Author — founder of the Tandi Mapolisa Foundation.</p>
         <div class="socials">
           <a href="#" aria-label="Facebook">Fb</a>
@@ -348,6 +435,8 @@
           <li><a href="#about">About Me</a></li>
           <li><a href="#awards">Awards &amp; Honours</a></li>
           <li><a href="#book">My Book</a></li>
+          <li><a href="#stories">Stories</a></li>
+          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#foundation">Foundation</a></li>
         </ul>
       </div>
@@ -367,17 +456,330 @@
   </div>
 </footer>
  
+<!-- STORY MODAL -->
+<div class="modal-overlay" id="storyModal">
+  <div class="modal-box modal-wide">
+    <button class="modal-close" onclick="closeModal('storyModal')">✕</button>
+    <img class="modal-banner" id="storyModalImg" src="" alt="">
+    <span class="eyebrow modal-eyebrow" id="storyModalCategory"></span>
+    <h2 id="storyModalTitle"></h2>
+    <div class="modal-meta" id="storyModalMeta"></div>
+    <div class="modal-body" id="storyModalBody"></div>
+  </div>
+</div>
+ 
+<!-- ENGAGEMENT MODAL -->
+<div class="modal-overlay" id="engagementModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('engagementModal')">✕</button>
+    <div id="engagementFormWrap">
+      <span class="eyebrow modal-eyebrow">Speaking Engagement</span>
+      <h2>Request an Engagement</h2>
+      <div class="modal-meta">Tell me a little about your event and I'll get back to you.</div>
+      <form id="engagementForm" onsubmit="return submitEngagementForm(event)">
+        <div class="field-row">
+          <div class="field">
+            <label for="engName">Full Name</label>
+            <input type="text" id="engName" required>
+          </div>
+          <div class="field">
+            <label for="engEmail">Email Address</label>
+            <input type="email" id="engEmail" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="engPhone">Phone Number</label>
+            <input type="tel" id="engPhone">
+          </div>
+          <div class="field">
+            <label for="engEventType">Type of Event</label>
+            <select id="engEventType" required>
+              <option value="">Select an option</option>
+              <option>Corporate Event</option>
+              <option>School / University</option>
+              <option>Conference / Summit</option>
+              <option>Community / NGO Event</option>
+              <option>Religious Gathering</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="engAttendees">Expected Number of Attendees</label>
+            <input type="number" id="engAttendees" min="1" placeholder="e.g. 150" required>
+          </div>
+          <div class="field">
+            <label for="engBooks">Books You'd Like to Purchase</label>
+            <select id="engBooks">
+              <option value="0">None at this time</option>
+              <option value="20+">20+ copies</option>
+              <option value="50+">50+ copies</option>
+              <option value="100+">100+ copies</option>
+              <option value="200+">200+ copies</option>
+              <option value="500+">500+ copies</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="engTopic">Topic / Theme</label>
+          <input type="text" id="engTopic" placeholder="e.g. Leadership, Women in Business, Community Impact" required>
+        </div>
+        <div class="field">
+          <label for="engMessage">Additional Details</label>
+          <textarea id="engMessage" placeholder="Event date, location, budget, or anything else I should know"></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold modal-submit">Submit Request</button>
+      </form>
+    </div>
+    <div id="engagementSuccess" class="success-state" style="display:none;">
+      <div class="icon">✓</div>
+      <h3>Request received</h3>
+      <p>Thank you — your engagement request has been noted. I'll be in touch shortly to confirm the details.</p>
+    </div>
+  </div>
+</div>
+ 
+<!-- DONATE MODAL -->
+<div class="modal-overlay" id="donateModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('donateModal')">✕</button>
+    <div id="donateFormWrap">
+      <span class="eyebrow modal-eyebrow">Support the Work</span>
+      <h2>Make a Donation</h2>
+      <div class="modal-meta">Every contribution helps transform lives. Thank you for your generosity.</div>
+      <form id="donateForm" onsubmit="return submitDonateForm(event)">
+        <div class="field-row">
+          <div class="field">
+            <label for="donName">Full Name</label>
+            <input type="text" id="donName" required>
+          </div>
+          <div class="field">
+            <label for="donEmail">Email Address</label>
+            <input type="email" id="donEmail" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="donPhone">Phone Number</label>
+          <input type="tel" id="donPhone">
+        </div>
+        <div class="field">
+          <label>Donation Amount (USD)</label>
+          <div class="amount-chips" id="amountChips">
+            <button type="button" class="amount-chip" data-amount="25">$25</button>
+            <button type="button" class="amount-chip" data-amount="50">$50</button>
+            <button type="button" class="amount-chip" data-amount="100">$100</button>
+            <button type="button" class="amount-chip" data-amount="250">$250</button>
+            <button type="button" class="amount-chip" data-amount="500">$500</button>
+          </div>
+          <input type="number" id="donAmount" min="1" placeholder="Or enter a custom amount" required>
+        </div>
+        <div class="field">
+          <label for="donMessage">Message (optional)</label>
+          <textarea id="donMessage" placeholder="Leave a note or dedication"></textarea>
+        </div>
+        <button type="submit" class="btn btn-forest modal-submit">Continue to Donate</button>
+      </form>
+    </div>
+    <div id="donateSuccess" class="success-state" style="display:none;">
+      <div class="icon">✓</div>
+      <h3>Thank you!</h3>
+      <p>Your donation details have been recorded. You'll receive a confirmation email shortly with payment instructions.</p>
+    </div>
+  </div>
+</div>
+ 
 <script>
+  // Mobile menu
   const burger = document.getElementById('burgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
  
+  // Reveal on scroll
   const revealEls = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
   }, { threshold: 0.2 });
   revealEls.forEach(el => revealObserver.observe(el));
+ 
+  /* ---------------- STORIES ---------------- */
+  const stories = [
+    {
+      id: 'story1',
+      category: 'Financial Literacy',
+      title: 'Why Financial Literacy Matters',
+      date: 'March 2026',
+      image: 'https://placehold.co/900x500/1E4FA3/FBF9F4?text=Financial+Literacy',
+      excerpt: 'Understanding money is one of the most powerful tools we can give our communities — here is why it belongs at the centre of any development programme.',
+      body: [
+        "Financial literacy is often treated as a nice-to-have rather than a foundation of community development — yet it is one of the clearest paths out of the cycle of debt and dependency.",
+        "When people understand how to budget, save, and borrow responsibly, they make better decisions for their households and their businesses. That knowledge compounds over generations.",
+        "Through our workshops, we've seen firsthand how a few practical sessions on money management can change the trajectory of a small business, or help a family finally start saving toward their children's education.",
+        "This is why financial literacy sits at the heart of everything we do at the Foundation — it isn't just about numbers, it's about dignity and self-reliance."
+      ]
+    },
+    {
+      id: 'story2',
+      category: "Women's Empowerment",
+      title: 'Empowering Women Through Entrepreneurship',
+      date: 'February 2026',
+      image: 'https://placehold.co/900x500/C89B3C/14213D?text=Women+Entrepreneurship',
+      excerpt: 'When women have access to mentorship and capital, entire communities benefit — a look at what we have learned from our Women in Business programme.',
+      body: [
+        "Across every community we work in, one pattern is unmistakable: when women succeed in business, that success ripples outward — into households, schools, and local economies.",
+        "Our Women in Business programme pairs aspiring entrepreneurs with mentors, practical financial training, and small grants to get their ideas off the ground.",
+        "The barriers women face in business are rarely about ambition or ability. More often it's about access — to capital, to networks, to the confidence that comes from someone believing in your idea.",
+        "We're proud of every woman who has gone through this programme, and we're just getting started."
+      ]
+    },
+    {
+      id: 'story3',
+      category: 'Education',
+      title: 'Education is the Greatest Investment',
+      date: 'January 2026',
+      image: 'https://placehold.co/900x500/2C6E49/FBF9F4?text=Education',
+      excerpt: 'From school fees to mentorship, our education programmes exist because we believe every child deserves the chance to learn.',
+      body: [
+        "There is no investment with a higher return than a child's education. It is the single most reliable way to break cycles of poverty across generations.",
+        "Yet for too many families, the cost of school fees, uniforms, and supplies is simply out of reach. Our Back to School campaign exists to close that gap.",
+        "Beyond the basics, we also invest in mentorship, career guidance, and digital skills — because an education isn't complete without a clear sense of what comes next.",
+        "Every learner we support today is a future teacher, entrepreneur, or leader tomorrow."
+      ]
+    },
+    {
+      id: 'story4',
+      category: 'Community',
+      title: 'Creating Sustainable Communities',
+      date: 'December 2025',
+      image: 'https://placehold.co/900x500/14213D/C89B3C?text=Sustainability',
+      excerpt: 'Sustainable change comes from communities being equipped to sustain themselves — here is how our infrastructure projects are built to last.',
+      body: [
+        "Short-term relief matters, but our real focus is on sustainability — projects that keep working long after we've moved on to the next community.",
+        "That means investing in water and sanitation infrastructure that communities can maintain themselves, and pairing every intervention with local training and ownership.",
+        "From clean-up campaigns to housing support, our community development work is designed around one question: will this still be helping people in five years?",
+        "It's a higher bar, but it's the only way to build change that truly lasts."
+      ]
+    },
+    {
+      id: 'story5',
+      category: 'Youth',
+      title: 'The Role of Youth in Nation Building',
+      date: 'November 2025',
+      image: 'https://placehold.co/900x500/2C6E49/FBF9F4?text=Youth+%26+Nation+Building',
+      excerpt: 'Our young people are not just the leaders of tomorrow — they are already shaping their communities today.',
+      body: [
+        "It's easy to talk about young people as 'leaders of tomorrow.' But across every project we run, I see young people leading today — organising, innovating, and solving problems in their own communities.",
+        "Our Youth Innovation Programme gives that energy a structure: digital skills, entrepreneurship training, and mentorship to turn ideas into ventures.",
+        "Nation building isn't a distant, abstract goal. It happens block by block, classroom by classroom, business by business — and young people are at the centre of it.",
+        "Investing in youth isn't charity. It's simply good strategy for any community that wants a future worth having."
+      ]
+    },
+    {
+      id: 'story6',
+      category: 'Foundation News',
+      title: 'More Stories from the Field',
+      date: 'Ongoing',
+      image: 'https://placehold.co/900x500/1E4FA3/FBF9F4?text=More+Stories',
+      excerpt: 'New updates and stories from our programmes are added regularly — check back to see what we have been working on.',
+      body: [
+        "This space will keep growing as new programmes launch and new stories come in from the field.",
+        "If you have a story you'd like featured — as a beneficiary, partner, or volunteer — I'd love to hear from you through the contact section below.",
+        "Thank you for following along and supporting this work."
+      ]
+    }
+  ];
+ 
+  const storiesGrid = document.getElementById('storiesGrid');
+  stories.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'story-card';
+    card.onclick = () => openStory(s.id);
+    card.innerHTML = `
+      <img src="${s.image}" alt="${s.title}">
+      <div class="story-body">
+        <span class="eyebrow">${s.category}</span>
+        <h4>${s.title}</h4>
+        <p>${s.excerpt}</p>
+        <span class="story-read">Read Story →</span>
+      </div>`;
+    storiesGrid.appendChild(card);
+  });
+ 
+  function openStory(id){
+    const s = stories.find(st => st.id === id);
+    if(!s) return;
+    document.getElementById('storyModalImg').src = s.image;
+    document.getElementById('storyModalImg').alt = s.title;
+    document.getElementById('storyModalCategory').textContent = s.category;
+    document.getElementById('storyModalTitle').textContent = s.title;
+    document.getElementById('storyModalMeta').textContent = s.date;
+    document.getElementById('storyModalBody').innerHTML = s.body.map(p => `<p>${p}</p>`).join('');
+    openModal('storyModal');
+  }
+ 
+  /* ---------------- MODAL HELPERS ---------------- */
+  function openModal(id){
+    document.getElementById(id).classList.add('open');
+    document.body.classList.add('modal-lock');
+  }
+  function closeModal(id){
+    document.getElementById(id).classList.remove('open');
+    document.body.classList.remove('modal-lock');
+  }
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => { if(e.target === overlay) closeModal(overlay.id); });
+  });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape'){ document.querySelectorAll('.modal-overlay.open').forEach(o => closeModal(o.id)); }
+  });
+ 
+  /* ---------------- ENGAGEMENT FORM ---------------- */
+  function submitEngagementForm(e){
+    e.preventDefault();
+    document.getElementById('engagementFormWrap').style.display = 'none';
+    document.getElementById('engagementSuccess').style.display = 'block';
+    document.getElementById('engagementForm').reset();
+    return false;
+  }
+ 
+  /* ---------------- DONATE FORM ---------------- */
+  const amountChips = document.querySelectorAll('#amountChips .amount-chip');
+  const donAmountInput = document.getElementById('donAmount');
+  amountChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      amountChips.forEach(c => c.classList.remove('selected'));
+      chip.classList.add('selected');
+      donAmountInput.value = chip.getAttribute('data-amount');
+    });
+  });
+  donAmountInput.addEventListener('input', () => {
+    amountChips.forEach(c => c.classList.toggle('selected', c.getAttribute('data-amount') === donAmountInput.value));
+  });
+ 
+  function submitDonateForm(e){
+    e.preventDefault();
+    document.getElementById('donateFormWrap').style.display = 'none';
+    document.getElementById('donateSuccess').style.display = 'block';
+    document.getElementById('donateForm').reset();
+    amountChips.forEach(c => c.classList.remove('selected'));
+    return false;
+  }
+ 
+  // Reset modal state to form view whenever a modal is closed, so it's fresh next time it opens
+  function resetModalOnClose(overlayId, wrapId, successId){
+    const overlay = document.getElementById(overlayId);
+    const obs = new MutationObserver(() => {
+      if(!overlay.classList.contains('open')){
+        document.getElementById(wrapId).style.display = 'block';
+        document.getElementById(successId).style.display = 'none';
+      }
+    });
+    obs.observe(overlay, { attributes: true, attributeFilter: ['class'] });
+  }
+  resetModalOnClose('engagementModal', 'engagementFormWrap', 'engagementSuccess');
+  resetModalOnClose('donateModal', 'donateFormWrap', 'donateSuccess');
 </script>
  
 </body>
