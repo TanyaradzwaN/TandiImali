@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,16 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#14213D;
-    --ink-soft:#3B4A6B;
-    --gold:#C89B3C;
-    --gold-deep:#A87F28;
-    --forest:#2C6E49;
-    --paper:#FBF9F4;
-    --mist:#EEF1F6;
+    --ink:#0F1B4D;
+    --ink-soft:#4B5480;
+    --gold:#D4AF37;
+    --gold-deep:#AA8C2C;
+    --forest:#2C2F61;
+    --paper:#FFFFFF;
+    --mist:#ECEDF1;
     --white:#FFFFFF;
-    --line: rgba(20,33,61,0.12);
-    --shadow: 0 20px 50px -25px rgba(20,33,61,0.35);
+    --line: rgba(15,27,77,0.14);
+    --shadow: 0 20px 50px -25px rgba(15,27,77,0.35);
     --radius-xl: 28px;
     --radius-lg: 20px;
     --radius-md: 14px;
@@ -47,7 +47,7 @@
   .btn-ink{border-color:var(--ink); color:var(--ink);}
   .btn-ink:hover{background:var(--ink); color:var(--white); transform:translateY(-2px);}
   .btn-forest{background:var(--forest); color:var(--white);}
-  .btn-forest:hover{background:#215838; transform:translateY(-2px);}
+  .btn-forest:hover{background:#20234E; transform:translateY(-2px);}
  
   header{position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(251,249,244,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
   nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0;}
@@ -96,7 +96,7 @@
   .awards{background:var(--mist);}
   .awards-banner{position:relative; border-radius:var(--radius-xl); overflow:hidden; height:260px; margin-top:40px; margin-bottom:8px;}
   .awards-banner img{width:100%; height:100%; object-fit:cover;}
-  .awards-banner .overlay{position:absolute; inset:0; background:linear-gradient(90deg, rgba(20,33,61,0.88) 10%, rgba(20,33,61,0.15) 80%); display:flex; align-items:center; padding:0 48px;}
+  .awards-banner .overlay{position:absolute; inset:0; background:linear-gradient(90deg, rgba(15,27,77,0.88) 10%, rgba(15,27,77,0.15) 80%); display:flex; align-items:center; padding:0 48px;}
   .awards-banner .overlay-text{max-width:420px; color:var(--white);}
   .awards-banner .overlay-text h3{color:var(--white); font-size:clamp(22px,2.6vw,30px); margin-bottom:8px;}
   .awards-banner .overlay-text p{color:rgba(255,255,255,0.8); font-size:14.5px;}
@@ -114,7 +114,7 @@
   .book-mockup{perspective:1200px; display:flex; justify-content:center;}
   .book{width:230px; height:330px; position:relative; transform-style:preserve-3d; transform:rotateY(-22deg) rotateX(1deg); transition:transform .5s ease;}
   .book-mockup:hover .book{transform:rotateY(-10deg) rotateX(1deg);}
-  .book-face{position:absolute; inset:0; border-radius:5px 12px 12px 5px; background:linear-gradient(155deg, var(--ink) 0%, #1c2f57 55%, var(--forest) 150%); box-shadow:-26px 26px 55px -22px rgba(20,33,61,.6); padding:2px 8px; display:flex; flex-direction:column; justify-content:space-between; color:var(--white); overflow:hidden;}
+  .book-face{position:absolute; inset:0; border-radius:5px 12px 12px 5px; background:linear-gradient(155deg, var(--ink) 0%, #1A2456 55%, var(--forest) 150%); box-shadow:-26px 26px 55px -22px rgba(15,27,77,.6); padding:2px 8px; display:flex; flex-direction:column; justify-content:space-between; color:var(--white); overflow:hidden;}
   .book-face .tag{font-family:'Space Grotesk',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold);}
   .book-face h3{font-family:'Fraunces',serif; font-size:25px; color:var(--white); line-height:1.2;}
   .book-face img{width:100%; height:100%; object-fit:cover; border-radius:6px;}
@@ -148,7 +148,7 @@
   .gallery-item{position:relative; border-radius:var(--radius-lg); overflow:hidden; height:220px;}
   .gallery-item img{width:100%; height:100%; object-fit:cover; transition:transform .4s;}
   .gallery-item:hover img{transform:scale(1.06);}
-  .gallery-cap{position:absolute; left:0; right:0; bottom:0; background:linear-gradient(0deg, rgba(20,33,61,0.85), transparent); color:var(--white); padding:14px 16px; font-family:'Space Grotesk',sans-serif; font-size:12.5px; font-weight:600;}
+  .gallery-cap{position:absolute; left:0; right:0; bottom:0; background:linear-gradient(0deg, rgba(15,27,77,0.85), transparent); color:var(--white); padding:14px 16px; font-family:'Space Grotesk',sans-serif; font-size:12.5px; font-weight:600;}
   @media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
  
   /* FOUNDATION SPOTLIGHT */
@@ -162,7 +162,8 @@
   .f-stat{background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:16px; padding:18px 16px; text-align:center;}
   .f-stat strong{display:block; font-family:'Fraunces',serif; font-size:26px; color:var(--gold);}
   .f-stat span{font-family:'Space Grotesk',sans-serif; font-size:10.5px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.04em;}
-  .foundation-art{position:relative; height:340px; border-radius:var(--radius-lg); background:linear-gradient(150deg, var(--forest), var(--gold-deep)); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.18);}
+  .foundation-art{position:relative; height:340px; border-radius:var(--radius-lg); background:var(--forest); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.18); overflow:hidden;}
+  .foundation-art video{width:100%; height:100%; object-fit:cover; display:block;}
   .foundation-btns{display:flex; gap:14px; margin-top:26px; flex-wrap:wrap;}
   @media(max-width:900px){.foundation .wrap{grid-template-columns:1fr;} .foundation-art{height:220px;}}
  
@@ -198,11 +199,11 @@
   input, textarea, select{width:100%; border:1px solid var(--line); background:var(--white); border-radius:14px; padding:14px 16px; font-family:'Inter',sans-serif; font-size:14.5px; color:var(--ink);}
   input:focus, textarea:focus, select:focus{outline:2px solid var(--gold); outline-offset:1px;}
   textarea{resize:vertical; min-height:100px;}
-  select{appearance:none; background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%233B4A6B'%3E%3Cpath d='M5.5 7.5l4.5 4.5 4.5-4.5' stroke='%233B4A6B' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:38px;}
+  select{appearance:none; background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%234B5480'%3E%3Cpath d='M5.5 7.5l4.5 4.5 4.5-4.5' stroke='%234B5480' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:38px;}
   @media(max-width:560px){.field-row{grid-template-columns:1fr;}}
  
   /* MODALS */
-  .modal-overlay{position:fixed; inset:0; background:rgba(20,33,61,0.55); backdrop-filter:blur(4px); display:none; align-items:center; justify-content:center; z-index:1000; padding:20px;}
+  .modal-overlay{position:fixed; inset:0; background:rgba(15,27,77,0.55); backdrop-filter:blur(4px); display:none; align-items:center; justify-content:center; z-index:1000; padding:20px;}
   .modal-overlay.open{display:flex;}
   .modal-box{background:var(--white); border-radius:var(--radius-lg); max-width:600px; width:100%; max-height:88vh; overflow-y:auto; padding:44px; position:relative; box-shadow:var(--shadow);}
   .modal-box.modal-wide{max-width:760px;}
@@ -213,6 +214,10 @@
   .modal-meta{font-family:'Space Grotesk',sans-serif; font-size:12.5px; color:var(--ink-soft); margin-bottom:22px;}
   .modal-box img.modal-banner{width:100%; height:260px; object-fit:cover; border-radius:var(--radius-md); margin-bottom:24px;}
   .modal-body p{color:var(--ink-soft); margin-bottom:14px; font-size:15px;}
+  .modal-gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:22px;}
+  .modal-gallery img{width:100%; height:90px; object-fit:cover; border-radius:var(--radius-sm); cursor:pointer; transition:opacity .2s;}
+  .modal-gallery img:hover{opacity:0.8;}
+  @media(max-width:560px){.modal-gallery{grid-template-columns:repeat(3,1fr);}}
   .modal-submit{margin-top:6px;}
   .amount-chips{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;}
   .amount-chip{border:1px solid var(--line); border-radius:100px; padding:11px 20px; cursor:pointer; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14px; background:var(--white); transition:all .2s; color:var(--ink);}
@@ -360,6 +365,9 @@
     <span class="eyebrow">Stories &amp; Insights</span>
     <h2 style="margin-top:16px; font-size:clamp(26px,3.2vw,38px); max-width:600px;">Latest stories</h2>
     <div class="stories-grid" id="storiesGrid"></div>
+    <div style="text-align:center; margin-top:40px;">
+      <button class="btn btn-ink" id="loadMoreStoriesBtn" onclick="loadMoreStories()">Load More Stories</button>
+    </div>
   </div>
 </section>
  
@@ -369,14 +377,14 @@
     <span class="eyebrow">Gallery</span>
     <h2 style="margin-top:16px; font-size:clamp(26px,3.2vw,38px);">Moments from the field</h2>
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="https://placehold.co/500x500/1E4FA3/FBF9F4?text=Community+Outreach" alt="Community outreach"><div class="gallery-cap">Community Outreach</div></div>
-      <div class="gallery-item"><img src="https://placehold.co/500x500/2C6E49/FBF9F4?text=Youth+Programmes" alt="Youth programmes"><div class="gallery-cap">Youth Programmes</div></div>
-      <div class="gallery-item"><img src="https://placehold.co/500x500/C89B3C/14213D?text=Educational+Support" alt="Educational support"><div class="gallery-cap">Educational Support</div></div>
-      <div class="gallery-item"><img src="https://placehold.co/500x500/14213D/C89B3C?text=Volunteer+Activities" alt="Volunteer activities"><div class="gallery-cap">Volunteer Activities</div></div>
-      <div class="gallery-item"><img src="https://placehold.co/500x500/2C6E49/FBF9F4?text=Health+Campaigns" alt="Health campaigns"><div class="gallery-cap">Health Campaigns</div></div>
-      <div class="gallery-item"><img src="https://placehold.co/500x500/1E4FA3/FBF9F4?text=Leadership+Workshops" alt="Leadership workshops"><div class="gallery-cap">Leadership Workshops</div></div>
-      <div class="gallery-item"><img src="https://placehold.co/500x500/C89B3C/14213D?text=Women%27s+Empowerment" alt="Women's empowerment"><div class="gallery-cap">Women's Empowerment</div></div>
-      <div class="gallery-item"><img src="https://placehold.co/500x500/14213D/FBF9F4?text=More+Stories" alt="More stories"><div class="gallery-cap">More Stories</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/0F1B4D/FFFFFF?text=Community+Outreach" alt="Community outreach"><div class="gallery-cap">Community Outreach</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/2C2F61/FFFFFF?text=Youth+Programmes" alt="Youth programmes"><div class="gallery-cap">Youth Programmes</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/D4AF37/0F1B4D?text=Educational+Support" alt="Educational support"><div class="gallery-cap">Educational Support</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/0F1B4D/D4AF37?text=Volunteer+Activities" alt="Volunteer activities"><div class="gallery-cap">Volunteer Activities</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/2C2F61/FFFFFF?text=Health+Campaigns" alt="Health campaigns"><div class="gallery-cap">Health Campaigns</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/0F1B4D/FFFFFF?text=Leadership+Workshops" alt="Leadership workshops"><div class="gallery-cap">Leadership Workshops</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/D4AF37/0F1B4D?text=Women%27s+Empowerment" alt="Women's empowerment"><div class="gallery-cap">Women's Empowerment</div></div>
+      <div class="gallery-item"><img src="https://placehold.co/500x500/0F1B4D/FFFFFF?text=More+Stories" alt="More stories"><div class="gallery-cap">More Stories</div></div>
     </div>
   </div>
 </section>
@@ -398,7 +406,9 @@
         <button class="btn btn-outline" onclick="openModal('donateModal')">Donate Now</button>
       </div>
     </div>
-    <div class="foundation-art"></div>
+    <div class="foundation-art">
+      <video src="book-trailer.mp4" poster="book-trailer-poster.jpg" controls playsinline preload="metadata"></video>
+    </div>
   </div>
 </section>
  
@@ -465,6 +475,7 @@
     <h2 id="storyModalTitle"></h2>
     <div class="modal-meta" id="storyModalMeta"></div>
     <div class="modal-body" id="storyModalBody"></div>
+    <div class="modal-gallery" id="storyModalGallery"></div>
   </div>
 </div>
  
@@ -607,11 +618,26 @@
   /* ---------------- STORIES ---------------- */
   const stories = [
     {
+      id: 'story-dzikwa',
+      category: 'Community Impact',
+      title: 'Honouring the Girl Child: A Day of Impact, Dignity and Hope',
+      date: 'Girl Child Commemoration Day, 2025',
+      image: 'story8.jpg',
+      excerpt: 'Marking Girl Child Commemoration Day with a pads donation to Dzikwa Trust, in partnership with Clean Up Zimbabwe and the CorePay Africa team.',
+      gallery: ['story8.jpg','story5.jpg','story3.jpg','story6.jpg','story7.jpg','story2.jpg','story.jpg'],
+      body: [
+        "It was an honour to be part of Girl Child Commemoration Day as we donated sanitary pads to Dzikwa Trust, founded by the inspiring Seppo Ainamo and Oili Wuolle. Spending time with the team and learning about their mission to uplift and empower young girls was both humbling and deeply moving.",
+        "This donation was made possible in collaboration with Clean Up Zimbabwe, who partnered with us on the initiative, and my heartfelt appreciation goes out to every CorePay Africa team member who contributed. Their generosity was more than an act of kindness — it was a statement about the kind of future we want to build for young girls.",
+        "I'm equally grateful to the dedicated team behind this event. Their hard work, passion, and commitment are what make days like this a success. As an organisation, we remain committed to supporting initiatives that empower the next generation.",
+        "Together, we're continuing to inspire, uplift, and open doors for every young girl striving for a better future."
+      ]
+    },
+    {
       id: 'story1',
       category: 'Financial Literacy',
       title: 'Why Financial Literacy Matters',
       date: 'March 2026',
-      image: 'https://placehold.co/900x500/1E4FA3/FBF9F4?text=Financial+Literacy',
+      image: 'https://placehold.co/900x500/0F1B4D/FFFFFF?text=Financial+Literacy',
       excerpt: 'Understanding money is one of the most powerful tools we can give our communities — here is why it belongs at the centre of any development programme.',
       body: [
         "Financial literacy is often treated as a nice-to-have rather than a foundation of community development — yet it is one of the clearest paths out of the cycle of debt and dependency.",
@@ -625,7 +651,7 @@
       category: "Women's Empowerment",
       title: 'Empowering Women Through Entrepreneurship',
       date: 'February 2026',
-      image: 'https://placehold.co/900x500/C89B3C/14213D?text=Women+Entrepreneurship',
+      image: 'https://placehold.co/900x500/D4AF37/0F1B4D?text=Women+Entrepreneurship',
       excerpt: 'When women have access to mentorship and capital, entire communities benefit — a look at what we have learned from our Women in Business programme.',
       body: [
         "Across every community we work in, one pattern is unmistakable: when women succeed in business, that success ripples outward — into households, schools, and local economies.",
@@ -639,7 +665,7 @@
       category: 'Education',
       title: 'Education is the Greatest Investment',
       date: 'January 2026',
-      image: 'https://placehold.co/900x500/2C6E49/FBF9F4?text=Education',
+      image: 'https://placehold.co/900x500/2C2F61/FFFFFF?text=Education',
       excerpt: 'From school fees to mentorship, our education programmes exist because we believe every child deserves the chance to learn.',
       body: [
         "There is no investment with a higher return than a child's education. It is the single most reliable way to break cycles of poverty across generations.",
@@ -653,7 +679,7 @@
       category: 'Community',
       title: 'Creating Sustainable Communities',
       date: 'December 2025',
-      image: 'https://placehold.co/900x500/14213D/C89B3C?text=Sustainability',
+      image: 'https://placehold.co/900x500/0F1B4D/D4AF37?text=Sustainability',
       excerpt: 'Sustainable change comes from communities being equipped to sustain themselves — here is how our infrastructure projects are built to last.',
       body: [
         "Short-term relief matters, but our real focus is on sustainability — projects that keep working long after we've moved on to the next community.",
@@ -667,7 +693,7 @@
       category: 'Youth',
       title: 'The Role of Youth in Nation Building',
       date: 'November 2025',
-      image: 'https://placehold.co/900x500/2C6E49/FBF9F4?text=Youth+%26+Nation+Building',
+      image: 'https://placehold.co/900x500/2C2F61/FFFFFF?text=Youth+%26+Nation+Building',
       excerpt: 'Our young people are not just the leaders of tomorrow — they are already shaping their communities today.',
       body: [
         "It's easy to talk about young people as 'leaders of tomorrow.' But across every project we run, I see young people leading today — organising, innovating, and solving problems in their own communities.",
@@ -681,7 +707,7 @@
       category: 'Foundation News',
       title: 'More Stories from the Field',
       date: 'Ongoing',
-      image: 'https://placehold.co/900x500/1E4FA3/FBF9F4?text=More+Stories',
+      image: 'https://placehold.co/900x500/0F1B4D/FFFFFF?text=More+Stories',
       excerpt: 'New updates and stories from our programmes are added regularly — check back to see what we have been working on.',
       body: [
         "This space will keep growing as new programmes launch and new stories come in from the field.",
@@ -692,7 +718,11 @@
   ];
  
   const storiesGrid = document.getElementById('storiesGrid');
-  stories.forEach(s => {
+  const loadMoreStoriesBtn = document.getElementById('loadMoreStoriesBtn');
+  const STORIES_PER_PAGE = 3;
+  let storiesVisible = 0;
+ 
+  function renderStoryCard(s){
     const card = document.createElement('div');
     card.className = 'story-card';
     card.onclick = () => openStory(s.id);
@@ -705,7 +735,18 @@
         <span class="story-read">Read Story →</span>
       </div>`;
     storiesGrid.appendChild(card);
-  });
+  }
+ 
+  function loadMoreStories(){
+    const next = stories.slice(storiesVisible, storiesVisible + STORIES_PER_PAGE);
+    next.forEach(renderStoryCard);
+    storiesVisible += next.length;
+    if(storiesVisible >= stories.length){
+      loadMoreStoriesBtn.style.display = 'none';
+    }
+  }
+ 
+  loadMoreStories(); // initial batch of 3
  
   function openStory(id){
     const s = stories.find(st => st.id === id);
@@ -716,6 +757,17 @@
     document.getElementById('storyModalTitle').textContent = s.title;
     document.getElementById('storyModalMeta').textContent = s.date;
     document.getElementById('storyModalBody').innerHTML = s.body.map(p => `<p>${p}</p>`).join('');
+    const galleryEl = document.getElementById('storyModalGallery');
+    galleryEl.innerHTML = '';
+    if(s.gallery && s.gallery.length){
+      s.gallery.forEach(imgSrc => {
+        const thumb = document.createElement('img');
+        thumb.src = imgSrc;
+        thumb.alt = s.title;
+        thumb.onclick = () => { document.getElementById('storyModalImg').src = imgSrc; };
+        galleryEl.appendChild(thumb);
+      });
+    }
     openModal('storyModal');
   }
  
@@ -784,3 +836,4 @@
  
 </body>
 </html>
+ 
