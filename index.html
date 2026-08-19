@@ -38,7 +38,7 @@
   section{position:relative;}
   .section-pad{padding:104px 0;}
   @media(max-width:768px){.section-pad{padding:68px 0;}}
- 
+
   .btn{display:inline-flex; align-items:center; gap:10px; font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:14.5px; letter-spacing:0.02em; padding:15px 28px; border-radius:100px; border:1.5px solid transparent; cursor:pointer; transition:all .25s ease; background:none;}
   .btn-gold{background:var(--gold); color:var(--ink);}
   .btn-gold:hover{background:var(--gold-deep); transform:translateY(-2px);}
@@ -48,7 +48,7 @@
   .btn-ink:hover{background:var(--ink); color:var(--white); transform:translateY(-2px);}
   .btn-forest{background:var(--forest); color:var(--white);}
   .btn-forest:hover{background:#20234E; transform:translateY(-2px);}
- 
+
   header{position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(251,249,244,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
   nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0;}
   .logo{display:flex; align-items:center; gap:10px;}
@@ -63,7 +63,7 @@
   .mobile-menu{display:none; flex-direction:column; gap:16px; padding:18px 28px 26px; font-family:'Space Grotesk',sans-serif; font-weight:500; border-top:1px solid var(--line);}
   .mobile-menu.open{display:flex;}
   @media(max-width:980px){.nav-links{display:none;} .nav-cta .btn{display:none;} .burger{display:flex;}}
- 
+
   /* HERO */
   .hero{padding:150px 0 100px; background:radial-gradient(circle at 85% 12%, rgba(200,155,60,0.18), transparent 45%), var(--ink); color:var(--white); overflow:hidden;}
   .hero .wrap{display:grid; grid-template-columns:1fr 0.85fr; gap:60px; align-items:center;}
@@ -79,7 +79,7 @@
   .hero-art .chip strong{display:block; font-family:'Fraunces',serif; font-size:22px; color:var(--forest);}
   .hero-art .chip span{font-size:11.5px; color:var(--ink-soft);}
   @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;} .hero-art{height:380px; margin-top:10px; max-width:340px; margin-left:auto; margin-right:auto;}}
- 
+
   /* ABOUT */
   .about .wrap{display:grid; grid-template-columns:0.8fr 1.2fr; gap:70px; align-items:center;}
   .about-img{position:relative;}
@@ -91,7 +91,7 @@
   .stat-chip strong{display:block; font-family:'Fraunces',serif; font-size:24px; color:var(--ink);}
   .stat-chip span{font-family:'Space Grotesk',sans-serif; font-size:11.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em;}
   @media(max-width:900px){.about .wrap{grid-template-columns:1fr;} .about-img img{height:340px;}}
- 
+
   /* AWARDS */
   .awards{background:var(--mist);}
   .awards-banner{position:relative; border-radius:var(--radius-xl); overflow:hidden; height:260px; margin-top:40px; margin-bottom:8px;}
@@ -108,7 +108,7 @@
   .award-note{margin-top:30px; font-size:13.5px; color:var(--ink-soft); font-style:italic;}
   @media(max-width:900px){.awards-grid{grid-template-columns:1fr 1fr;} .awards-banner{height:200px;}}
   @media(max-width:600px){.awards-grid{grid-template-columns:1fr;}}
- 
+
   /* BOOK */
   .book-section .wrap{display:grid; grid-template-columns:0.75fr 1.25fr; gap:70px; align-items:center;}
   .book-mockup{perspective:1200px; display:flex; justify-content:center;}
@@ -128,7 +128,7 @@
   .book-highlights li{display:flex; gap:10px; align-items:flex-start; font-size:14.5px; color:var(--ink-soft);}
   .book-highlights li::before{content:'—'; color:var(--gold-deep); font-weight:700; flex-shrink:0;}
   @media(max-width:900px){.book-section .wrap{grid-template-columns:1fr;} .book-mockup{margin-bottom:10px;}}
- 
+
   /* STORIES */
   .stories{background:var(--mist);}
   .stories-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:44px;}
@@ -142,7 +142,7 @@
   .story-read{font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:600; color:var(--gold-deep); display:inline-flex; align-items:center; gap:6px; margin-top:4px;}
   @media(max-width:900px){.stories-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:600px){.stories-grid{grid-template-columns:1fr;}}
- 
+
   /* GALLERY */
   .gallery-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:44px;}
   .gallery-item{position:relative; border-radius:var(--radius-lg); overflow:hidden; height:220px;}
@@ -150,7 +150,7 @@
   .gallery-item:hover img{transform:scale(1.06);}
   .gallery-cap{position:absolute; left:0; right:0; bottom:0; background:linear-gradient(0deg, rgba(15,27,77,0.85), transparent); color:var(--white); padding:14px 16px; font-family:'Space Grotesk',sans-serif; font-size:12.5px; font-weight:600;}
   @media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
- 
+
   /* FOUNDATION SPOTLIGHT */
   .foundation{background:var(--ink); color:var(--white);}
   .foundation .wrap{display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;}
@@ -162,18 +162,26 @@
   .f-stat{background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:16px; padding:18px 16px; text-align:center;}
   .f-stat strong{display:block; font-family:'Fraunces',serif; font-size:26px; color:var(--gold);}
   .f-stat span{font-family:'Space Grotesk',sans-serif; font-size:10.5px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.04em;}
-  .foundation-art{position:relative; height:340px; border-radius:var(--radius-lg); background:var(--forest); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.18); overflow:hidden;}
+  .foundation-art{position:relative; height:340px; border-radius:var(--radius-lg); background:var(--forest); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.18); overflow:hidden; cursor:pointer;}
   .foundation-art video{width:100%; height:100%; object-fit:cover; display:block;}
+  .video-poster-wrap{position:absolute; inset:0; width:100%; height:100%;}
+  .video-poster-wrap img{width:100%; height:100%; object-fit:cover; display:block;}
+  .video-poster-wrap::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,27,77,0.15), rgba(15,27,77,0.55));}
+  .video-play-btn{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:76px; height:76px; border-radius:50%; background:rgba(255,255,255,0.95); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(0,0,0,0.35); transition:transform .25s ease, background .25s ease; z-index:2;}
+  .video-play-btn::after{content:''; width:0; height:0; border-style:solid; border-width:12px 0 12px 20px; border-color:transparent transparent transparent var(--ink); margin-left:5px;}
+  .foundation-art:hover .video-play-btn{transform:translate(-50%,-50%) scale(1.08); background:var(--gold);}
+  .foundation-art:hover .video-play-btn::after{border-color:transparent transparent transparent var(--ink);}
+  .video-caption{position:absolute; left:20px; bottom:16px; z-index:2; color:var(--white); font-family:'Space Grotesk',sans-serif; font-size:12.5px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; display:flex; align-items:center; gap:8px;}
   .foundation-btns{display:flex; gap:14px; margin-top:26px; flex-wrap:wrap;}
   @media(max-width:900px){.foundation .wrap{grid-template-columns:1fr;} .foundation-art{height:220px;}}
- 
+
   /* ENGAGE */
   .engage{text-align:center;}
   .engage .wrap{max-width:680px;}
   .engage h2{font-size:clamp(26px,3.2vw,38px); margin:16px 0 16px;}
   .engage p{color:var(--ink-soft); margin-bottom:30px;}
   .engage-btns{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
- 
+
   /* FOOTER */
   footer{background:var(--ink); color:rgba(255,255,255,0.75); padding-top:70px;}
   .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding-bottom:50px; border-bottom:1px solid rgba(255,255,255,0.12);}
@@ -188,10 +196,10 @@
   .footer-bottom{display:flex; justify-content:space-between; padding:24px 0; font-size:13px; flex-wrap:wrap; gap:10px;}
   @media(max-width:700px){.footer-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
- 
+
   .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
   .reveal.visible{opacity:1; transform:translateY(0);}
- 
+
   /* FORM ELEMENTS (shared by modals) */
   label{font-family:'Space Grotesk',sans-serif; font-size:12.5px; font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-bottom:7px;}
   .field{margin-bottom:18px;}
@@ -201,7 +209,7 @@
   textarea{resize:vertical; min-height:100px;}
   select{appearance:none; background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%234B5480'%3E%3Cpath d='M5.5 7.5l4.5 4.5 4.5-4.5' stroke='%234B5480' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:38px;}
   @media(max-width:560px){.field-row{grid-template-columns:1fr;}}
- 
+
   /* MODALS */
   .modal-overlay{position:fixed; inset:0; background:rgba(15,27,77,0.55); backdrop-filter:blur(4px); display:none; align-items:center; justify-content:center; z-index:1000; padding:20px;}
   .modal-overlay.open{display:flex;}
@@ -230,7 +238,7 @@
 </style>
 </head>
 <body>
- 
+
 <header>
   <div class="wrap">
     <nav>
@@ -261,7 +269,7 @@
     </div>
   </div>
 </header>
- 
+
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="wrap">
@@ -276,17 +284,17 @@
       </div>
     </div>
     <div class="hero-art">
-      <img src="tandi-portrait.jpg" alt="Tandi Mapolisa portrait">
+      <img src="tandi-hero.jpg" alt="Tandi Mapolisa portrait">
       <div class="chip"><strong>1,000+</strong><span>Lives touched through community programmes</span></div>
     </div>
   </div>
 </section>
- 
+
 <!-- ABOUT -->
 <section class="about section-pad" id="about">
   <div class="wrap">
     <div class="about-img">
-      <img src="tandi-portrait.jpg" alt="Tandi Mapolisa">
+      <img src="tandi-about.jpg" alt="Tandi Mapolisa">
     </div>
     <div class="about-copy">
       <span class="eyebrow">About Me</span>
@@ -303,7 +311,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- AWARDS -->
 <section class="awards section-pad" id="awards">
   <div class="wrap">
@@ -329,7 +337,7 @@
     <p class="award-note">* Placeholder award details above — send me the actual award names, issuing bodies, and years and I'll drop them straight in.</p>
   </div>
 </section>
- 
+
 <!-- BOOK -->
 <section class="book-section section-pad" id="book">
   <div class="wrap">
@@ -358,7 +366,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- STORIES -->
 <section class="stories section-pad" id="stories">
   <div class="wrap">
@@ -370,25 +378,25 @@
     </div>
   </div>
 </section>
- 
+
 <!-- GALLERY -->
 <section class="section-pad" id="gallery">
   <div class="wrap">
     <span class="eyebrow">Gallery</span>
     <h2 style="margin-top:16px; font-size:clamp(26px,3.2vw,38px);">Moments from the field</h2>
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="story.jpg" alt="Community outreach"><div class="gallery-cap">Girl Child Commemoration</div></div>
-      <div class="gallery-item"><img src="story4.jpg" alt="Youth programmes"><div class="gallery-cap">Girl Child Commemoration Day</div></div>
-      <div class="gallery-item"><img src="https://placehold.co/500x500/D4AF37/0F1B4D?text=Educational+Support" alt="Educational support"><div class="gallery-cap">Educational Support</div></div>
-      <div class="gallery-item"><img src="https://placehold.co/500x500/0F1B4D/D4AF37?text=Volunteer+Activities" alt="Volunteer activities"><div class="gallery-cap">Volunteer Activities</div></div>
-      <div class="gallery-item"><img src="https://placehold.co/500x500/2C2F61/FFFFFF?text=Health+Campaigns" alt="Health campaigns"><div class="gallery-cap">Health Campaigns</div></div>
-      <div class="gallery-item"><img src="https://placehold.co/500x500/0F1B4D/FFFFFF?text=Leadership+Workshops" alt="Leadership workshops"><div class="gallery-cap">Leadership Workshops</div></div>
-      <div class="gallery-item"><img src="https://placehold.co/500x500/D4AF37/0F1B4D?text=Women%27s+Empowerment" alt="Women's empowerment"><div class="gallery-cap">Women's Empowerment</div></div>
-      <div class="gallery-item"><img src="https://placehold.co/500x500/0F1B4D/FFFFFF?text=More+Stories" alt="More stories"><div class="gallery-cap">More Stories</div></div>
+      <div class="gallery-item"><img src="story.jpg" alt="Girl Child Commemoration Day"><div class="gallery-cap">Girl Child Commemoration Day</div></div>
+      <div class="gallery-item"><img src="story4.jpg" alt="Visiting Dzikwa Trust"><div class="gallery-cap">Visiting Dzikwa Trust</div></div>
+      <div class="gallery-item"><img src="tandi-gallery1.jpg" alt="In the boardroom"><div class="gallery-cap">In the Boardroom</div></div>
+      <div class="gallery-item"><img src="tandi-gallery2.jpg" alt="Leading with purpose"><div class="gallery-cap">Leading with Purpose</div></div>
+      <div class="gallery-item"><img src="tandi-gallery3.jpg" alt="Grounded in purpose"><div class="gallery-cap">Grounded in Purpose</div></div>
+      <div class="gallery-item"><img src="tandi-gallery4.jpg" alt="Always moving forward"><div class="gallery-cap">Always Moving Forward</div></div>
+      <div class="gallery-item"><img src="tandi-gallery5.jpg" alt="Behind the scenes"><div class="gallery-cap">Behind the Scenes</div></div>
+      <div class="gallery-item"><img src="tandi-gallery6.jpg" alt="Everyday moments"><div class="gallery-cap">Everyday Moments</div></div>
     </div>
   </div>
 </section>
- 
+
 <!-- FOUNDATION SPOTLIGHT -->
 <section class="foundation section-pad" id="foundation">
   <div class="wrap">
@@ -406,12 +414,17 @@
         <button class="btn btn-outline" onclick="openModal('donateModal')">Donate Now</button>
       </div>
     </div>
-    <div class="foundation-art">
-      <video src="book-trailer.mp4" poster="book-trailer-poster.jpg" controls playsinline preload="metadata"></video>
+    <div class="foundation-art" id="foundationArt" onclick="playFoundationVideo()">
+      <div class="video-poster-wrap" id="videoPosterWrap">
+        <img src="book-trailer-poster.jpg" alt="Watch the video">
+        <div class="video-play-btn"></div>
+        <div class="video-caption">▶ Watch the video</div>
+      </div>
+      <video id="foundationVideo" src="book-trailer.mp4" poster="book-trailer-poster.jpg" controls playsinline preload="metadata" style="display:none;"></video>
     </div>
   </div>
 </section>
- 
+
 <!-- ENGAGE -->
 <section class="engage section-pad" id="engage">
   <div class="wrap">
@@ -424,7 +437,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
@@ -465,7 +478,7 @@
     </div>
   </div>
 </footer>
- 
+
 <!-- STORY MODAL -->
 <div class="modal-overlay" id="storyModal">
   <div class="modal-box modal-wide">
@@ -478,7 +491,7 @@
     <div class="modal-gallery" id="storyModalGallery"></div>
   </div>
 </div>
- 
+
 <!-- ENGAGEMENT MODAL -->
 <div class="modal-overlay" id="engagementModal">
   <div class="modal-box">
@@ -551,7 +564,7 @@
     </div>
   </div>
 </div>
- 
+
 <!-- DONATE MODAL -->
 <div class="modal-overlay" id="donateModal">
   <div class="modal-box">
@@ -600,21 +613,30 @@
     </div>
   </div>
 </div>
- 
+
 <script>
   // Mobile menu
   const burger = document.getElementById('burgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
- 
+
   // Reveal on scroll
   const revealEls = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
   }, { threshold: 0.2 });
   revealEls.forEach(el => revealObserver.observe(el));
- 
+
+  /* ---------------- FOUNDATION VIDEO ---------------- */
+  function playFoundationVideo(){
+    const posterWrap = document.getElementById('videoPosterWrap');
+    const video = document.getElementById('foundationVideo');
+    posterWrap.style.display = 'none';
+    video.style.display = 'block';
+    video.play();
+  }
+
   /* ---------------- STORIES ---------------- */
   const stories = [
     {
@@ -716,12 +738,12 @@
       ]
     }
   ];
- 
+
   const storiesGrid = document.getElementById('storiesGrid');
   const loadMoreStoriesBtn = document.getElementById('loadMoreStoriesBtn');
   const STORIES_PER_PAGE = 3;
   let storiesVisible = 0;
- 
+
   function renderStoryCard(s){
     const card = document.createElement('div');
     card.className = 'story-card';
@@ -736,7 +758,7 @@
       </div>`;
     storiesGrid.appendChild(card);
   }
- 
+
   function loadMoreStories(){
     const next = stories.slice(storiesVisible, storiesVisible + STORIES_PER_PAGE);
     next.forEach(renderStoryCard);
@@ -745,9 +767,9 @@
       loadMoreStoriesBtn.style.display = 'none';
     }
   }
- 
+
   loadMoreStories(); // initial batch of 3
- 
+
   function openStory(id){
     const s = stories.find(st => st.id === id);
     if(!s) return;
@@ -770,7 +792,7 @@
     }
     openModal('storyModal');
   }
- 
+
   /* ---------------- MODAL HELPERS ---------------- */
   function openModal(id){
     document.getElementById(id).classList.add('open');
@@ -786,7 +808,7 @@
   document.addEventListener('keydown', (e) => {
     if(e.key === 'Escape'){ document.querySelectorAll('.modal-overlay.open').forEach(o => closeModal(o.id)); }
   });
- 
+
   /* ---------------- ENGAGEMENT FORM ---------------- */
   function submitEngagementForm(e){
     e.preventDefault();
@@ -795,7 +817,7 @@
     document.getElementById('engagementForm').reset();
     return false;
   }
- 
+
   /* ---------------- DONATE FORM ---------------- */
   const amountChips = document.querySelectorAll('#amountChips .amount-chip');
   const donAmountInput = document.getElementById('donAmount');
@@ -809,7 +831,7 @@
   donAmountInput.addEventListener('input', () => {
     amountChips.forEach(c => c.classList.toggle('selected', c.getAttribute('data-amount') === donAmountInput.value));
   });
- 
+
   function submitDonateForm(e){
     e.preventDefault();
     document.getElementById('donateFormWrap').style.display = 'none';
@@ -818,7 +840,7 @@
     amountChips.forEach(c => c.classList.remove('selected'));
     return false;
   }
- 
+
   // Reset modal state to form view whenever a modal is closed, so it's fresh next time it opens
   function resetModalOnClose(overlayId, wrapId, successId){
     const overlay = document.getElementById(overlayId);
@@ -833,7 +855,6 @@
   resetModalOnClose('engagementModal', 'engagementFormWrap', 'engagementSuccess');
   resetModalOnClose('donateModal', 'donateFormWrap', 'donateSuccess');
 </script>
- 
+
 </body>
 </html>
- 
