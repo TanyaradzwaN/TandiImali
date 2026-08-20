@@ -144,12 +144,13 @@
   @media(max-width:600px){.stories-grid{grid-template-columns:1fr;}}
 
   /* GALLERY */
-  .gallery-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:44px;}
-  .gallery-item{position:relative; border-radius:var(--radius-lg); overflow:hidden; height:220px;}
+  .gallery-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:44px;}
+  .gallery-item{position:relative; border-radius:var(--radius-lg); overflow:hidden; height:260px;}
   .gallery-item img{width:100%; height:100%; object-fit:cover; transition:transform .4s;}
   .gallery-item:hover img{transform:scale(1.06);}
   .gallery-cap{position:absolute; left:0; right:0; bottom:0; background:linear-gradient(0deg, rgba(15,27,77,0.85), transparent); color:var(--white); padding:14px 16px; font-family:'Space Grotesk',sans-serif; font-size:12.5px; font-weight:600;}
   @media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.gallery-grid{grid-template-columns:1fr;}}
 
   /* FOUNDATION SPOTLIGHT */
   .foundation{background:var(--ink); color:var(--white);}
@@ -384,15 +385,9 @@
   <div class="wrap">
     <span class="eyebrow">Gallery</span>
     <h2 style="margin-top:16px; font-size:clamp(26px,3.2vw,38px);">Moments from the field</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item"><img src="story.jpg" alt="Girl Child Commemoration Day"><div class="gallery-cap">Girl Child Commemoration Day</div></div>
-      <div class="gallery-item"><img src="story4.jpg" alt="Visiting Dzikwa Trust"><div class="gallery-cap">Visiting Dzikwa Trust</div></div>
-      <div class="gallery-item"><img src="tandi-gallery1.jpg" alt="In the boardroom"><div class="gallery-cap">In the Boardroom</div></div>
-      <div class="gallery-item"><img src="tandi-gallery2.jpg" alt="Leading with purpose"><div class="gallery-cap">Leading with Purpose</div></div>
-      <div class="gallery-item"><img src="tandi-gallery3.jpg" alt="Grounded in purpose"><div class="gallery-cap">Grounded in Purpose</div></div>
-      <div class="gallery-item"><img src="tandi-gallery4.jpg" alt="Always moving forward"><div class="gallery-cap">Always Moving Forward</div></div>
-      <div class="gallery-item"><img src="tandi-gallery5.jpg" alt="Behind the scenes"><div class="gallery-cap">Behind the Scenes</div></div>
-      <div class="gallery-item"><img src="tandi-gallery6.jpg" alt="Everyday moments"><div class="gallery-cap">Everyday Moments</div></div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+    <div style="text-align:center; margin-top:40px;">
+      <button class="btn btn-ink" id="loadMoreGalleryBtn" onclick="loadMoreGallery()">Load More Photos</button>
     </div>
   </div>
 </section>
@@ -446,10 +441,12 @@
         <div class="footer-logo"><img src="logo.png" alt="Tandi Mapolisa Foundation logo"></div>
         <p style="max-width:280px; font-size:14px;">Entrepreneur, Philanthropist, Community Builder and Author — founder of the Tandi Mapolisa Foundation.</p>
         <div class="socials">
-          <a href="#" aria-label="Facebook">Fb</a>
-          <a href="#" aria-label="Twitter">X</a>
-          <a href="#" aria-label="Instagram">Ig</a>
-          <a href="#" aria-label="YouTube">Yt</a>
+          <a href="#" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06C2 17.06 5.66 21.21 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.21 22 17.06 22 12.06Z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer-col">
@@ -637,8 +634,61 @@
     video.play();
   }
 
+  /* ---------------- GALLERY ---------------- */
+  const galleryItems = [
+    { img: 'story.jpg', caption: 'Girl Child Commemoration Day' },
+    { img: 'story4.jpg', caption: 'Visiting Dzikwa Trust' },
+    { img: 'tandi-gallery1.jpg', caption: 'In the Boardroom' },
+    { img: 'tandi-gallery2.jpg', caption: 'Leading with Purpose' },
+    { img: 'tandi-gallery3.jpg', caption: 'Grounded in Purpose' },
+    { img: 'tandi-gallery4.jpg', caption: 'Always Moving Forward' },
+    { img: 'tandi-gallery5.jpg', caption: 'Behind the Scenes' },
+    { img: 'tandi-gallery6.jpg', caption: 'Everyday Moments' }
+  ];
+
+  const galleryGrid = document.getElementById('galleryGrid');
+  const loadMoreGalleryBtn = document.getElementById('loadMoreGalleryBtn');
+  const GALLERY_PER_PAGE = 3;
+  let galleryVisible = 0;
+
+  function renderGalleryItem(g){
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.innerHTML = `<img src="${g.img}" alt="${g.caption}"><div class="gallery-cap">${g.caption}</div>`;
+    galleryGrid.appendChild(item);
+  }
+
+  function loadMoreGallery(){
+    const next = galleryItems.slice(galleryVisible, galleryVisible + GALLERY_PER_PAGE);
+    next.forEach(renderGalleryItem);
+    galleryVisible += next.length;
+    if(galleryVisible >= galleryItems.length){
+      loadMoreGalleryBtn.style.display = 'none';
+    }
+  }
+
+  loadMoreGallery(); // initial batch of 3
+
   /* ---------------- STORIES ---------------- */
   const stories = [
+    {
+      id: 'story-bootcamp',
+      category: 'Technology & Innovation',
+      title: 'Shaping the AI and Technology Era: Opening the CorePay Payroll Bootcamp',
+      date: 'CorePay Payroll Bootcamp, 2025',
+      image: 'bootcamp-podium.jpg',
+      excerpt: 'Officially opening our Payroll Bootcamp under the theme "Shaping the AI and Technology Era" — on why AI is here to empower people, not replace them.',
+      gallery: ['bootcamp-podium.jpg','bootcamp-mic.jpg','bootcamp-team1.jpg','bootcamp-group.jpg','bootcamp-handshake1.jpg','bootcamp-handshake2.jpg','bootcamp-handover.jpg'],
+      body: [
+        "It was a privilege to officially open our Payroll Bootcamp under the theme 'Shaping the AI and Technology Era.'",
+        "One thing is becoming increasingly clear: AI is not here to replace people, it is here to empower people.",
+        "Across every industry, technology is transforming how we work, make decisions, and deliver value. In payroll and HR, automation is reducing repetitive tasks, improving accuracy, strengthening compliance, and allowing professionals to focus on what matters most: people and strategy.",
+        "The question is no longer whether AI will change our workplaces. The question is whether we are preparing ourselves to lead that change.",
+        "As professionals, business leaders, and innovators, we have a responsibility to continuously learn, adapt, and embrace new technologies while ensuring that the human element remains at the centre of everything we do.",
+        "The future belongs to those who are willing to learn, unlearn, and relearn.",
+        "It was exciting to engage with industry leaders, professionals, and innovators as we explored how technology and AI can shape a more efficient, productive, and inclusive future."
+      ]
+    },
     {
       id: 'story-dzikwa',
       category: 'Community Impact',
