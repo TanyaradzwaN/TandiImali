@@ -48,6 +48,7 @@
   .btn-ink:hover{background:var(--ink); color:var(--white); transform:translateY(-2px);}
   .btn-forest{background:var(--forest); color:var(--white);}
   .btn-forest:hover{background:#20234E; transform:translateY(-2px);}
+  .btn:disabled{opacity:0.6; cursor:not-allowed; transform:none;}
 
   header{position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(251,249,244,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
   nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0;}
@@ -236,6 +237,10 @@
   .success-state .icon{width:64px; height:64px; border-radius:50%; background:var(--forest); color:var(--white); font-size:28px; display:flex; align-items:center; justify-content:center; margin:0 auto 20px;}
   .success-state h3{font-size:22px; margin-bottom:10px;}
   .success-state p{color:var(--ink-soft); font-size:14.5px;}
+  .error-state{text-align:center; padding:20px 0; display:none;}
+  .error-state .icon{width:64px; height:64px; border-radius:50%; background:#B3402C; color:var(--white); font-size:28px; display:flex; align-items:center; justify-content:center; margin:0 auto 20px;}
+  .error-state h3{font-size:22px; margin-bottom:10px;}
+  .error-state p{color:var(--ink-soft); font-size:14.5px;}
 </style>
 </head>
 <body>
@@ -550,13 +555,18 @@
           <label for="engMessage">Additional Details</label>
           <textarea id="engMessage" placeholder="Event date, location, budget, or anything else I should know"></textarea>
         </div>
-        <button type="submit" class="btn btn-gold modal-submit">Submit Request</button>
+        <button type="submit" class="btn btn-gold modal-submit" id="engSubmitBtn">Submit Request</button>
       </form>
     </div>
     <div id="engagementSuccess" class="success-state" style="display:none;">
       <div class="icon">✓</div>
       <h3>Request received</h3>
       <p>Thank you — your engagement request has been noted. I'll be in touch shortly to confirm the details.</p>
+    </div>
+    <div id="engagementError" class="error-state">
+      <div class="icon">!</div>
+      <h3>Something went wrong</h3>
+      <p>Your request couldn't be sent right now. Please try again, or email me directly at <strong>nyamusarat@gmail.com</strong>.</p>
     </div>
   </div>
 </div>
@@ -599,13 +609,18 @@
           <label for="donMessage">Message (optional)</label>
           <textarea id="donMessage" placeholder="Leave a note or dedication"></textarea>
         </div>
-        <button type="submit" class="btn btn-forest modal-submit">Continue to Donate</button>
+        <button type="submit" class="btn btn-forest modal-submit" id="donSubmitBtn">Continue to Donate</button>
       </form>
     </div>
     <div id="donateSuccess" class="success-state" style="display:none;">
       <div class="icon">✓</div>
       <h3>Thank you!</h3>
       <p>Your donation details have been recorded. You'll receive a confirmation email shortly with payment instructions.</p>
+    </div>
+    <div id="donateError" class="error-state">
+      <div class="icon">!</div>
+      <h3>Something went wrong</h3>
+      <p>Your donation details couldn't be sent right now. Please try again, or email me directly at <strong>nyamusarat@gmail.com</strong>.</p>
     </div>
   </div>
 </div>
@@ -647,7 +662,7 @@
 
   const galleryGrid = document.getElementById('galleryGrid');
   const loadMoreGalleryBtn = document.getElementById('loadMoreGalleryBtn');
-  const GALLERY_PER_PAGE = 6;
+  const GALLERY_PER_PAGE = 3;
   let galleryVisible = 0;
 
   function renderGalleryItem(g){
@@ -858,12 +873,55 @@
     if(e.key === 'Escape'){ document.querySelectorAll('.modal-overlay.open').forEach(o => closeModal(o.id)); }
   });
 
+  /* ---------------- FORM SUBMISSION (via FormSubmit.co -> nyamusarat@gmail.com) ---------------- */
+  const FORM_ENDPOINT = 'https://formsubmit.co/nyamusarat@gmail.com';
+
+  async function postForm(payload, btn){
+    const originalLabel = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try{
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if(!response.ok) throw new Error('Request failed');
+      return true;
+    } catch(err){
+      return false;
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalLabel;
+    }
+  }
+
   /* ---------------- ENGAGEMENT FORM ---------------- */
-  function submitEngagementForm(e){
+  async function submitEngagementForm(e){
     e.preventDefault();
-    document.getElementById('engagementFormWrap').style.display = 'none';
-    document.getElementById('engagementSuccess').style.display = 'block';
-    document.getElementById('engagementForm').reset();
+    const btn = document.getElementById('engSubmitBtn');
+    const payload = {
+      _subject: 'New Speaking Engagement Request — Tandi Mapolisa Website',
+      _template: 'table',
+      _captcha: 'false',
+      'Full Name': document.getElementById('engName').value,
+      'Email Address': document.getElementById('engEmail').value,
+      'Phone Number': document.getElementById('engPhone').value,
+      'Type of Event': document.getElementById('engEventType').value,
+      'Expected Number of Attendees': document.getElementById('engAttendees').value,
+      'Books to Purchase': document.getElementById('engBooks').value,
+      'Topic / Theme': document.getElementById('engTopic').value,
+      'Additional Details': document.getElementById('engMessage').value
+    };
+    const ok = await postForm(payload, btn);
+    if(ok){
+      document.getElementById('engagementFormWrap').style.display = 'none';
+      document.getElementById('engagementError').style.display = 'none';
+      document.getElementById('engagementSuccess').style.display = 'block';
+      document.getElementById('engagementForm').reset();
+    } else {
+      document.getElementById('engagementError').style.display = 'block';
+    }
     return false;
   }
 
@@ -881,28 +939,46 @@
     amountChips.forEach(c => c.classList.toggle('selected', c.getAttribute('data-amount') === donAmountInput.value));
   });
 
-  function submitDonateForm(e){
+  async function submitDonateForm(e){
     e.preventDefault();
-    document.getElementById('donateFormWrap').style.display = 'none';
-    document.getElementById('donateSuccess').style.display = 'block';
-    document.getElementById('donateForm').reset();
-    amountChips.forEach(c => c.classList.remove('selected'));
+    const btn = document.getElementById('donSubmitBtn');
+    const payload = {
+      _subject: 'New Donation Submission — Tandi Mapolisa Website',
+      _template: 'table',
+      _captcha: 'false',
+      'Full Name': document.getElementById('donName').value,
+      'Email Address': document.getElementById('donEmail').value,
+      'Phone Number': document.getElementById('donPhone').value,
+      'Donation Amount (USD)': document.getElementById('donAmount').value,
+      'Message': document.getElementById('donMessage').value
+    };
+    const ok = await postForm(payload, btn);
+    if(ok){
+      document.getElementById('donateFormWrap').style.display = 'none';
+      document.getElementById('donateError').style.display = 'none';
+      document.getElementById('donateSuccess').style.display = 'block';
+      document.getElementById('donateForm').reset();
+      amountChips.forEach(c => c.classList.remove('selected'));
+    } else {
+      document.getElementById('donateError').style.display = 'block';
+    }
     return false;
   }
 
   // Reset modal state to form view whenever a modal is closed, so it's fresh next time it opens
-  function resetModalOnClose(overlayId, wrapId, successId){
+  function resetModalOnClose(overlayId, wrapId, successId, errorId){
     const overlay = document.getElementById(overlayId);
     const obs = new MutationObserver(() => {
       if(!overlay.classList.contains('open')){
         document.getElementById(wrapId).style.display = 'block';
         document.getElementById(successId).style.display = 'none';
+        if(errorId) document.getElementById(errorId).style.display = 'none';
       }
     });
     obs.observe(overlay, { attributes: true, attributeFilter: ['class'] });
   }
-  resetModalOnClose('engagementModal', 'engagementFormWrap', 'engagementSuccess');
-  resetModalOnClose('donateModal', 'donateFormWrap', 'donateSuccess');
+  resetModalOnClose('engagementModal', 'engagementFormWrap', 'engagementSuccess', 'engagementError');
+  resetModalOnClose('donateModal', 'donateFormWrap', 'donateSuccess', 'donateError');
 </script>
 
 </body>
