@@ -241,6 +241,13 @@
   .error-state .icon{width:64px; height:64px; border-radius:50%; background:#B3402C; color:var(--white); font-size:28px; display:flex; align-items:center; justify-content:center; margin:0 auto 20px;}
   .error-state h3{font-size:22px; margin-bottom:10px;}
   .error-state p{color:var(--ink-soft); font-size:14.5px;}
+  .payment-details{background:var(--mist); border:1px solid var(--line); border-radius:var(--radius-md); padding:20px; margin:18px 0 24px;}
+  .payment-details h3{font-size:18px; margin-bottom:12px;}
+  .payment-details p{font-size:14px; color:var(--ink-soft); margin-bottom:4px;}
+  .payment-details strong{color:var(--ink);}
+  .payment-note{font-size:12.5px; color:var(--ink-soft); margin-top:10px;}
+  input[type="file"]{padding:11px 12px; background:var(--mist); cursor:pointer;}
+  .file-help{font-size:12px; color:var(--ink-soft); margin-top:6px;}
 </style>
 </head>
 <body>
@@ -333,12 +340,12 @@
       </div>
     </div>
     <div class="awards-grid">
-      <div class="award-card"><div class="award-badge">🏆</div><div><h4>[Award Name]</h4><p>[Issuing Body] · [Year]</p></div></div>
-      <div class="award-card"><div class="award-badge">🏅</div><div><h4>[Award Name]</h4><p>[Issuing Body] · [Year]</p></div></div>
-      <div class="award-card"><div class="award-badge">🎖️</div><div><h4>[Award Name]</h4><p>[Issuing Body] · [Year]</p></div></div>
-      <div class="award-card"><div class="award-badge">⭐</div><div><h4>[Award Name]</h4><p>[Issuing Body] · [Year]</p></div></div>
-      <div class="award-card"><div class="award-badge">🏆</div><div><h4>[Award Name]</h4><p>[Issuing Body] · [Year]</p></div></div>
-      <div class="award-card"><div class="award-badge">🏅</div><div><h4>[Award Name]</h4><p>[Issuing Body] · [Year]</p></div></div>
+      <div class="award-card"><div class="award-badge">🏆</div><div><h4>CEO OF THE YEAR</h4><p>2023</p></div></div>
+      <div class="award-card"><div class="award-badge">🏅</div><div><h4>OUTSTANDING RECORD BREAKER</h4><p>2022</p></div></div>
+      <div class="award-card"><div class="award-badge">🎖️</div><div><h4>OUTSTANDING PROFESSIONAL EXCELLENCE</h4><p>2024</p></div></div>
+      <div class="award-card"><div class="award-badge">⭐</div><div><h4>OUTSTANDING BUSINESS LEADER</h4><p>2016</p></div></div>
+      <div class="award-card"><div class="award-badge">🏆</div><div><h4>OUTSTANDING WOMEN OF INFLUENCER & LEADERSHIP </h4><p>2021</p></div></div>
+      <div class="award-card"><div class="award-badge">🏅</div><div><h4>ENTREPRENEURAL HUMAN RESOURCES LEADER</h4><p>2023</p></div></div>
     </div>
     <p class="award-note">* Placeholder award details above — send me the actual award names, issuing bodies, and years and I'll drop them straight in.</p>
   </div>
@@ -352,7 +359,7 @@
         <div class="book-spine"></div>
         <div class="book-pages"></div>
         <div class="book-face">
-          <img src="book.jpeg" alt="Full Circle book cover">
+          <img src="Book1.png" alt="Full Circle book">
         </div>
       </div>
     </div>
@@ -366,7 +373,7 @@
         <li>Practical guidance for aspiring changemakers</li>
       </ul>
       <div class="hero-btns">
-        <a href="#" class="btn btn-forest">Buy My Book</a>
+        <button type="button" class="btn btn-forest" onclick="openModal('bookModal')">Buy My Book</button>
       </div>
     </div>
   </div>
@@ -621,6 +628,120 @@
       <div class="icon">!</div>
       <h3>Something went wrong</h3>
       <p>Your donation details couldn't be sent right now. Please try again, or email me directly at <strong>nyamusarat@gmail.com</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BOOK PURCHASE MODAL -->
+<div class="modal-overlay" id="bookModal">
+  <div class="modal-box modal-wide">
+    <button class="modal-close" onclick="closeModal('bookModal')">✕</button>
+
+    <div id="bookFormWrap">
+      <span class="eyebrow modal-eyebrow">Purchase My Book</span>
+      <h2>Buy <em>Full Circle</em></h2>
+      <div class="modal-meta">Make your payment using the bank details below, then complete the form and attach your proof of payment.</div>
+
+      <div class="payment-details">
+        <h3>Bank Details</h3>
+        <p><strong>Account Name:</strong> Tandiwe Mapolisa</p>
+        <p><strong>Account Number:</strong> 1126742481</p>
+        <p><strong>Bank Name:</strong> CABS</p>
+        <p><strong>Branch:</strong> Avondale</p>
+        <p><strong>Sort Code:</strong> 2400</p>
+        <p class="payment-note">Please use your name as the payment reference where possible.</p>
+      </div>
+
+      <form id="bookForm" onsubmit="return submitBookForm(event)">
+        <div class="field-row">
+          <div class="field">
+            <label for="bookName">Full Name</label>
+            <input type="text" id="bookName" required>
+          </div>
+          <div class="field">
+            <label for="bookEmail">Email Address</label>
+            <input type="email" id="bookEmail" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="bookPhone">Contact Number</label>
+            <input type="tel" id="bookPhone" required>
+          </div>
+          <div class="field">
+            <label for="bookQuantity">Number of Books</label>
+            <input type="number" id="bookQuantity" min="1" value="1" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="bookAmount">Amount Paid</label>
+            <input type="number" id="bookAmount" min="0" step="0.01" placeholder="Enter amount paid" required>
+          </div>
+          <div class="field">
+            <label for="bookPaymentStatus">Payment Status</label>
+            <select id="bookPaymentStatus" required>
+              <option value="">Select an option</option>
+              <option>Paid</option>
+              <option>Payment Pending</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="bookPaymentMethod">Payment Method</label>
+            <select id="bookPaymentMethod" required>
+              <option value="">Select an option</option>
+              <option>Bank Transfer</option>
+              <option>Cash Deposit</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="bookCollection">Method of Collection</label>
+            <select id="bookCollection" required>
+              <option value="">Select an option</option>
+              <option>Collection / Pick-up</option>
+              <option>Delivery</option>
+              <option>Collection at an Event</option>
+              <option>Other Arrangement</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="bookCollectionDetails">Collection / Delivery Details</label>
+          <textarea id="bookCollectionDetails" placeholder="Please provide your preferred collection location or delivery details."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="bookProof">Proof of Payment</label>
+          <input type="file" id="bookProof" accept=".pdf,.jpg,.jpeg,.png" required>
+          <div class="file-help">Please attach your proof of payment as a PDF, JPG or PNG file.</div>
+        </div>
+
+        <div class="field">
+          <label for="bookMessage">Additional Information</label>
+          <textarea id="bookMessage" placeholder="Any additional information you would like us to know."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-gold modal-submit" id="bookSubmitBtn">Submit Book Order</button>
+      </form>
+    </div>
+
+    <div id="bookSuccess" class="success-state" style="display:none;">
+      <div class="icon">✓</div>
+      <h3>Order received</h3>
+      <p>Thank you. Your book order and proof of payment have been received. We will contact you to confirm your order and collection or delivery arrangements.</p>
+    </div>
+
+    <div id="bookError" class="error-state">
+      <div class="icon">!</div>
+      <h3>Something went wrong</h3>
+      <p>Your order could not be sent right now. Please try again or contact us directly at <strong>tandimapolisa@gmail.com</strong>.</p>
     </div>
   </div>
 </div>
@@ -881,11 +1002,16 @@
     btn.disabled = true;
     btn.textContent = 'Sending…';
     try{
-      const response = await fetch(FORM_ENDPOINT, {
+      const isFormData = payload instanceof FormData;
+      const options = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(payload)
-      });
+        headers: isFormData
+          ? { 'Accept': 'application/json' }
+          : { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: isFormData ? payload : JSON.stringify(payload)
+      };
+
+      const response = await fetch(FORM_ENDPOINT, options);
       if(!response.ok) throw new Error('Request failed');
       return true;
     } catch(err){
@@ -965,6 +1091,50 @@
     return false;
   }
 
+  /* ---------------- BOOK PURCHASE FORM ---------------- */
+  async function submitBookForm(e){
+    e.preventDefault();
+
+    const btn = document.getElementById('bookSubmitBtn');
+    const proofInput = document.getElementById('bookProof');
+
+    if(!proofInput.files.length){
+      document.getElementById('bookError').style.display = 'block';
+      return false;
+    }
+
+    const formData = new FormData();
+
+    formData.append('_subject', 'New Book Purchase — Tandi Mapolisa Website');
+    formData.append('_template', 'table');
+    formData.append('_captcha', 'false');
+
+    formData.append('Full Name', document.getElementById('bookName').value);
+    formData.append('Email Address', document.getElementById('bookEmail').value);
+    formData.append('Contact Number', document.getElementById('bookPhone').value);
+    formData.append('Number of Books', document.getElementById('bookQuantity').value);
+    formData.append('Amount Paid', document.getElementById('bookAmount').value);
+    formData.append('Payment Status', document.getElementById('bookPaymentStatus').value);
+    formData.append('Payment Method', document.getElementById('bookPaymentMethod').value);
+    formData.append('Method of Collection', document.getElementById('bookCollection').value);
+    formData.append('Collection / Delivery Details', document.getElementById('bookCollectionDetails').value);
+    formData.append('Additional Information', document.getElementById('bookMessage').value);
+    formData.append('Proof of Payment', proofInput.files[0]);
+
+    const ok = await postForm(formData, btn);
+
+    if(ok){
+      document.getElementById('bookFormWrap').style.display = 'none';
+      document.getElementById('bookError').style.display = 'none';
+      document.getElementById('bookSuccess').style.display = 'block';
+      document.getElementById('bookForm').reset();
+    } else {
+      document.getElementById('bookError').style.display = 'block';
+    }
+
+    return false;
+  }
+
   // Reset modal state to form view whenever a modal is closed, so it's fresh next time it opens
   function resetModalOnClose(overlayId, wrapId, successId, errorId){
     const overlay = document.getElementById(overlayId);
@@ -979,6 +1149,7 @@
   }
   resetModalOnClose('engagementModal', 'engagementFormWrap', 'engagementSuccess', 'engagementError');
   resetModalOnClose('donateModal', 'donateFormWrap', 'donateSuccess', 'donateError');
+  resetModalOnClose('bookModal', 'bookFormWrap', 'bookSuccess', 'bookError');
 </script>
 
 </body>
