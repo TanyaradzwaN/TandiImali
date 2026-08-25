@@ -637,11 +637,11 @@ For our donors, partners, and supporters, every contribution is an opportunity t
         <div class="field">
           <label>Donation Amount (USD)</label>
           <div class="amount-chips" id="amountChips">
-            <button type="button" class="amount-chip" data-amount="25">$25</button>
-            <button type="button" class="amount-chip" data-amount="50">$50</button>
-            <button type="button" class="amount-chip" data-amount="100">$100</button>
-            <button type="button" class="amount-chip" data-amount="250">$250</button>
-            <button type="button" class="amount-chip" data-amount="500">$500</button>
+            <button type="button" class="amount-chip" data-amount="25">$50</button>
+            <button type="button" class="amount-chip" data-amount="50">$100</button>
+            <button type="button" class="amount-chip" data-amount="100">$250</button>
+            <button type="button" class="amount-chip" data-amount="250">$500</button>
+            <button type="button" class="amount-chip" data-amount="500">$1000</button>
           </div>
           <input type="number" id="donAmount" min="1" placeholder="Or enter a custom amount" required>
         </div>
@@ -810,20 +810,22 @@ For our donors, partners, and supporters, every contribution is an opportunity t
 
   /* ---------------- GALLERY ---------------- */
   const galleryItems = [
-    { img: 'images/gallery-record-breaker-award.jpg', caption: 'Outstanding Record Breaker Award' },
-    { img: 'images/gallery-global-payroll-awards-2023.jpg', caption: 'Global Payroll Awards 2023' },
-    { img: 'images/gallery-school-assembly.jpg', caption: 'Girl Child Commemoration Day' },
-    { img: 'images/gallery-gala-selfie.jpg', caption: 'Global Payroll Awards, London' },
-    { img: 'images/gallery-team-traditional-attire.jpg', caption: 'Celebrating African Heritage with the Team' },
-    { img: 'images/gallery-pads-donation-display.jpg', caption: 'Sanitary Pads Donation, Dzikwa Trust' },
-    { img: 'images/gallery-community-partners-group.jpg', caption: 'With Our Community Partners' },
-    { img: 'images/gallery-pads-handover.jpg', caption: 'Handover Day at Dzikwa Trust' },
-    { img: 'images/gallery-community-hall.jpg', caption: 'Community Outreach Programme' },
-    { img: 'images/gallery-pink-roses-team.jpg', caption: 'With the Pink Roses Beauty Spa Team' },
-    { img: 'images/gallery-award-stage.jpg', caption: 'On Stage, Receiving Recognition' },
-    { img: 'images/gallery-graduation-doctorate.jpg', caption: 'Graduation Day Celebrations' },
-    { img: 'images/gallery-podium-address.jpg', caption: 'Address at Haven Life Bible School' },
-    { img: 'images/gallery-graduation-group.jpg', caption: 'Graduation Day, With the Team' }
+    { img: 'story.jpg', caption: 'Girl Child Commemoration Day' },
+    { img: 'story4.jpg', caption: 'Visiting Dzikwa Trust' },
+    { img: 'gallery-record-breaker-award.jpg', caption: 'Outstanding Record Breaker Award' },
+    { img: 'gallery-global-payroll-awards-2023.jpg', caption: 'Global Payroll Awards 2023' },
+    { img: 'gallery-school-assembly.jpg', caption: 'Girl Child Commemoration Day' },
+    { img: 'gallery-gala-selfie.jpg', caption: 'Global Payroll Awards, London' },
+    { img: 'gallery-team-traditional-attire.jpg', caption: 'Celebrating African Heritage with the Team' },
+    { img: 'gallery-pads-donation-display.jpg', caption: 'Sanitary Pads Donation, Dzikwa Trust' },
+    { img: 'gallery-community-partners-group.jpg', caption: 'With Our Community Partners' },
+    { img: 'gallery-pads-handover.jpg', caption: 'Handover Day at Dzikwa Trust' },
+    { img: 'gallery-community-hall.jpg', caption: 'Community Outreach Programme' },
+    { img: 'gallery-pink-roses-team.jpg', caption: 'With the Pink Roses Beauty Spa Team' },
+    { img: 'gallery-award-stage.jpg', caption: 'On Stage, Receiving Recognition' },
+    { img: 'gallery-graduation-doctorate.jpg', caption: 'Graduation Day Celebrations' },
+    { img: 'gallery-podium-address.jpg', caption: 'Address at Haven Life Bible School' },
+    { img: 'gallery-graduation-group.jpg', caption: 'Graduation Day, With the Team' }
   ];
 
   const galleryGrid = document.getElementById('galleryGrid');
