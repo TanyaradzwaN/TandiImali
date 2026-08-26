@@ -1,0 +1,53 @@
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sshpass
+
+      - name: Connect and Deploy
+        run: |
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no  "${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}" << 'EOF'
+            # Step 1: Navigate to the /opt directory
+            cd /opt/apps
+
+            # Step 2: Clone the latest repository
+            if [ -d "tandi" ]; then
+              echo "Directory already exists. Removing..."
+              rm -rf tandi
+            fi
+            mkdir tandi
+
+            # Step 3: Navigate to the project directory
+            cd tandi
+
+            git clone https://TanyaradzwaN:${{ secrets.TOKEN }}@github.com//TanyaradzwaN/TandiImali .
+
+            git checkout main
+            git pull origin main
+
+            # Step 4: Stop, remove, and clean Docker resources
+            docker stop tandi || true
+            docker rm tandi || true
+            docker rmi tandimali-backend || true
+
+            # Step 5: Build and run the Docker container
+            docker build -t tandi .
+            docker run -d -p 9005:80 --name=tandi --restart=always tandi
+
+
+            # Step 6: Clean up cloned repository
+            cd ../..
+            rm -rf tandi
+
+            echo "Deployment completed successfully."
+          EOF
