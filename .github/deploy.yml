@@ -44,7 +44,6 @@ jobs:
             docker build -t tandi .
             docker run -d -p 9005:80 --name=tandi --restart=always tandi
 
-
             # Step 6: Clean up cloned repository
             cd ../..
             rm -rf tandi
