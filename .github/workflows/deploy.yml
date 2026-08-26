@@ -39,7 +39,7 @@ jobs:
             # Step 4: Stop, remove, and clean Docker resources
             docker stop tandi || true
             docker rm tandi || true
-            docker rmi tandimali-backend || true
+            docker rmi tandi || true
 
             # Step 5: Build and run the Docker container
             docker build -t tandi .
