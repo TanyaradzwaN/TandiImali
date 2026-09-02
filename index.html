@@ -692,7 +692,7 @@ For our donors, partners, and supporters, every contribution is an opportunity t
     <div id="bookFormWrap">
       <span class="eyebrow modal-eyebrow">Purchase My Book</span>
       <h2>Buy <em>Full Circle</em></h2>
-      <div class="modal-meta">Pay securely with Paynow (card, EcoCash or OneMoney), or use bank transfer and attach your proof of payment.</div>
+      <div class="modal-meta">Pay securely with Paynow (card, EcoCash), or use bank transfer and attach your proof of payment.</div>
 
       <form id="bookForm" onsubmit="return submitBookForm(event)">
         <div class="field-row">
@@ -733,8 +733,7 @@ For our donors, partners, and supporters, every contribution is an opportunity t
             <select id="bookPaymentMethod" required onchange="toggleBookPaymentUI()">
               <option value="">Select an option</option>
               <option value="Paynow" selected>Paynow (Card / Bank)</option>
-              <option value="EcoCash">EcoCash (Paynow Express)</option>
-              <option value="OneMoney">OneMoney (Paynow Express)</option>
+              <option value="EcoCash">EcoCash</option>
               <option value="Bank Transfer">Bank Transfer</option>
               <option value="Cash Deposit">Cash Deposit</option>
             </select>
@@ -767,6 +766,7 @@ For our donors, partners, and supporters, every contribution is an opportunity t
             <p><strong>Sort Code:</strong> 2400</p>
             <p class="payment-note">Please use your name as the payment reference where possible.</p>
           </div>
+  
 
           <div class="field-row">
             <div class="field">
@@ -774,13 +774,13 @@ For our donors, partners, and supporters, every contribution is an opportunity t
               <select id="bookPaymentStatus">
                 <option value="">Select an option</option>
                 <option>Paid</option>
-                <option>Payment Pending</option>
+                <option>Cash Payment Pending</option>
               </select>
             </div>
             <div class="field">
               <label for="bookProof">Proof of Payment</label>
               <input type="file" id="bookProof" accept=".pdf,.jpg,.jpeg,.png">
-              <div class="file-help">Attach PDF, JPG or PNG proof for bank / cash payments.</div>
+              <div class="file-help">Attach PDF, JPG or PNG proof for bank / ecocash payments.</div>
             </div>
           </div>
         </div>
