@@ -74,7 +74,7 @@
   .btn-outline:hover{background:rgba(255,255,255,0.12); transform:translateY(-2px);}
   .btn-ink{border-color:var(--ink); color:var(--ink);}
   .btn-ink:hover{background:var(--ink); color:var(--white); transform:translateY(-2px);}
-  .btn-forest{background:var(--forest); color:var(--white);margin-top:20px}
+  .btn-forest{background:var(--forest); color:var(--white);padding-top:30px}
   .btn-forest:hover{background:#20234E; transform:translateY(-2px);}
   .btn:disabled{opacity:0.6; cursor:not-allowed; transform:none;}
 
@@ -692,7 +692,7 @@ For our donors, partners, and supporters, every contribution is an opportunity t
     <div id="bookFormWrap">
       <span class="eyebrow modal-eyebrow">Purchase My Book</span>
       <h2>Buy <em>Full Circle</em></h2>
-      <div class="modal-meta">Pay securely with Paynow (card, EcoCash or OneMoney), or use bank transfer and attach your proof of payment.</div>
+      <div class="modal-meta">Pay securely with EcoCash, or use bank transfer and attach your proof of payment.</div>
 
       <form id="bookForm" onsubmit="return submitBookForm(event)">
         <div class="field-row">
@@ -731,10 +731,8 @@ For our donors, partners, and supporters, every contribution is an opportunity t
           <div class="field">
             <label for="bookPaymentMethod">Payment Method</label>
             <select id="bookPaymentMethod" required onchange="toggleBookPaymentUI()">
-              <option value="">Select an option</option>
-              <option value="Paynow" selected>Paynow (Card / Bank)</option>
-              <option value="EcoCash">EcoCash (Paynow Express)</option>
-              <option value="OneMoney">OneMoney (Paynow Express)</option>
+              <option value="">Select an option</optiono>
+              <option value="EcoCash">EcoCash</option>
               <option value="Bank Transfer">Bank Transfer</option>
               <option value="Cash Deposit">Cash Deposit</option>
             </select>
@@ -767,6 +765,7 @@ For our donors, partners, and supporters, every contribution is an opportunity t
             <p><strong>Sort Code:</strong> 2400</p>
             <p class="payment-note">Please use your name as the payment reference where possible.</p>
           </div>
+  
 
           <div class="field-row">
             <div class="field">
@@ -774,13 +773,13 @@ For our donors, partners, and supporters, every contribution is an opportunity t
               <select id="bookPaymentStatus">
                 <option value="">Select an option</option>
                 <option>Paid</option>
-                <option>Payment Pending</option>
+                <option>Cash Payment Pending</option>
               </select>
             </div>
             <div class="field">
               <label for="bookProof">Proof of Payment</label>
               <input type="file" id="bookProof" accept=".pdf,.jpg,.jpeg,.png">
-              <div class="file-help">Attach PDF, JPG or PNG proof for bank / cash payments.</div>
+              <div class="file-help">Attach PDF, JPG or PNG proof for bank / ecocash payments.</div>
             </div>
           </div>
         </div>
@@ -840,7 +839,7 @@ For our donors, partners, and supporters, every contribution is an opportunity t
     { img: 'gallery-school-assembly.jpg', caption: 'Girl Child Commemoration Day' },
     { img: 'gallery-gala-selfie.jpg', caption: 'Global Payroll Awards, London' },
     { img: 'gallery-team-traditional-attire.jpg', caption: 'Celebrating African Heritage with the Team' },
-    { img: 'gallery-pads-donation-display.jpg', caption: "Sanitary Pads Donation, Chiedza Childrens Home" },
+    { img: 'gallery-pads-donation-display.jpg', caption: "Sanitary Pads Donation, Chiedza Children's Home" },
     { img: 'gallery-community-partners-group.jpg', caption: 'With Our Community Partners' },
     { img: 'gallery-pads-handover.jpg', caption: 'Handover Day at Dzikwa Trust' },
     { img: 'gallery-community-hall.jpg', caption: 'Community Outreach Programme' },
@@ -1070,7 +1069,6 @@ For our donors, partners, and supporters, every contribution is an opportunity t
   const PAYNOW_BASE = (document.querySelector('base')?.href) || new URL('.', window.location.href).href;
   const PAYNOW_PING = new URL('paynow/ping.php', PAYNOW_BASE).href;
   const PAYNOW_INITIATE = new URL('paynow/initiate.php', PAYNOW_BASE).href;
-  const SUBMIT_ORDER_ENDPOINT = new URL('submit_order.php', PAYNOW_BASE).href;
 
   (async function checkPhpBackend(){
     if (window.location.protocol === 'file:') {
@@ -1209,7 +1207,7 @@ For our donors, partners, and supporters, every contribution is an opportunity t
     const paynow = isPaynowMethod(method);
 
     bankBlock.style.display = paynow ? 'none' : 'block';
-    proof.required = !paynow && (method === 'Bank Transfer' || method === 'Cash Deposit');
+    proof.required = !paynow && (method === 'Bank Transfer' || method === 'Cash Deposit' || method === 'Ecocash');
     status.required = !paynow;
     btn.textContent = paynow ? 'Pay with Paynow' : 'Submit Book Order';
   }
@@ -1294,59 +1292,39 @@ For our donors, partners, and supporters, every contribution is an opportunity t
     }
 
     const formData = new FormData();
-    formData.append('bookName', document.getElementById('bookName').value);
-    formData.append('bookEmail', document.getElementById('bookEmail').value);
-    formData.append('bookPhone', document.getElementById('bookPhone').value);
-    formData.append('bookQuantity', document.getElementById('bookQuantity').value);
-    formData.append('bookAmount', document.getElementById('bookAmount').value);
-    formData.append('bookPaymentStatus', document.getElementById('bookPaymentStatus').value);
-    formData.append('bookPaymentMethod', method);
-    formData.append('bookCollection', document.getElementById('bookCollection').value);
-    formData.append('bookCollectionDetails', document.getElementById('bookCollectionDetails').value);
-    formData.append('bookMessage', document.getElementById('bookMessage').value);
+
+    formData.append('_subject', 'New Book Purchase — Tandi Mapolisa Website');
+    formData.append('_template', 'table');
+    formData.append('_captcha', 'false');
+
+    formData.append('Full Name', document.getElementById('bookName').value);
+    formData.append('Email Address', document.getElementById('bookEmail').value);
+    formData.append('Contact Number', document.getElementById('bookPhone').value);
+    formData.append('Number of Books', document.getElementById('bookQuantity').value);
+    formData.append('Book Price', document.getElementById('bookAmount').value);
+    formData.append('Payment Status', document.getElementById('bookPaymentStatus').value);
+    formData.append('Payment Method', method);
+    formData.append('Method of Collection', document.getElementById('bookCollection').value);
+    formData.append('Collection / Delivery Details', document.getElementById('bookCollectionDetails').value);
+    formData.append('Additional Information', document.getElementById('bookMessage').value);
     if(proofInput.files.length){
-      formData.append('bookProof', proofInput.files[0]);
+      formData.append('Proof of Payment', proofInput.files[0]);
     }
 
-    const originalLabel = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
+    const ok = await postForm(formData, btn);
 
-    let ok = false;
-    let passEmailSent = false;
-    try {
-      const response = await fetch(SUBMIT_ORDER_ENDPOINT, { method: 'POST', body: formData });
-      const raw = await response.text();
-      let data;
-      try {
-        data = JSON.parse(raw);
-      } catch (_) {
-        throw new Error('The order backend did not return a valid response. Check that submit_order.php is uploaded and PHP is running on this server.');
-      }
-      ok = response.ok && data.success;
-      passEmailSent = !!data.pass_email_sent;
-      if(!ok){
-        throw new Error(data.error || 'Order request failed.');
-      }
-    } catch (err) {
-      errorMsg.textContent = err.message || 'Your order could not be sent right now. Please try again or contact us directly at tandimapolisa@gmail.com.';
+    if(ok){
+      document.getElementById('bookFormWrap').style.display = 'none';
+      document.getElementById('bookError').style.display = 'none';
+      document.getElementById('bookSuccessMsg').textContent =
+        'Thank you. Your book order and proof of payment have been received. We will contact you to confirm your order and collection or delivery arrangements.';
+      document.getElementById('bookSuccess').style.display = 'block';
+      document.getElementById('bookForm').reset();
+      toggleBookPaymentUI();
+    } else {
+      errorMsg.textContent = 'Your order could not be sent right now. Please try again or contact us directly at tandimapolisa@gmail.com.';
       document.getElementById('bookError').style.display = 'block';
-      btn.disabled = false;
-      btn.textContent = originalLabel;
-      return false;
     }
-
-    btn.disabled = false;
-    btn.textContent = originalLabel;
-
-    document.getElementById('bookFormWrap').style.display = 'none';
-    document.getElementById('bookError').style.display = 'none';
-    document.getElementById('bookSuccessMsg').textContent = passEmailSent
-      ? 'Thank you! Your order has been received and your personalised Access Pass has been emailed to you — check your inbox (and spam folder just in case).'
-      : 'Thank you. Your book order and proof of payment have been received. We will contact you to confirm your order and collection or delivery arrangements.';
-    document.getElementById('bookSuccess').style.display = 'block';
-    document.getElementById('bookForm').reset();
-    toggleBookPaymentUI();
 
     return false;
   }
