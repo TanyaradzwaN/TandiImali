@@ -1195,7 +1195,7 @@ For our donors, partners, and supporters, every contribution is an opportunity t
 
   /* ---------------- BOOK PURCHASE FORM ---------------- */
   function isPaynowMethod(method){
-    return method === 'Paynow' || method === 'EcoCash' || method === 'OneMoney';
+    return method === 'Paynow';
   }
 
   function toggleBookPaymentUI(){
@@ -1226,10 +1226,7 @@ For our donors, partners, and supporters, every contribution is an opportunity t
       btn.disabled = true;
       btn.textContent = 'Connecting to Paynow…';
 
-      const paynowMethod = method === 'EcoCash' ? 'ecocash'
-        : method === 'OneMoney' ? 'onemoney'
-        : 'web';
-
+    
       try {
         const response = await fetch(PAYNOW_INITIATE, {
           method: 'POST',
